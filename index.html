@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaiden "JJ" Medina — Computer Engineering @ Indiana University</title>
+<meta name="description" content="Jaiden 'JJ' Medina — Computer Engineering student at Indiana University Bloomington. Embedded systems, robotics, data analytics, manufacturing engineering, and engineering leadership. Accelerated M.S. in Intelligent Systems Engineering.">
+<meta name="keywords" content="Jaiden Medina, JJ Medina, Computer Engineering, Indiana University, Embedded Systems, Robotics, Data Analytics, Manufacturing Engineering, SHPE, Tau Epsilon Kappa, Intelligent Systems Engineering, Luddy School">
+<meta property="og:title" content="Jaiden 'JJ' Medina — Computer Engineering @ Indiana University">
+<meta property="og:description" content="Building intelligent, efficient, and human-centered systems. Embedded systems, robotics, data analytics, and engineering leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0e14;
+    --bg2: #111520;
+    --bg3: #161b26;
+    --surface: #1a2035;
+    --surface2: #1e2640;
+    --border: rgba(255,255,255,0.07);
+    --accent: #f5a623;
+    --accent2: #e8921a;
+    --accent-glow: rgba(245,166,35,0.15);
+    --blue: #4a9eff;
+    --blue-dim: rgba(74,158,255,0.12);
+    --text: #e8eaf0;
+    --text-dim: #8892a4;
+    --text-muted: #545f72;
+    --red: #ff6b6b;
+    --green: #56d364;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* UTILITIES */
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .syne { font-family: 'Syne', sans-serif; }
+  .accent { color: var(--accent); }
+  .blue { color: var(--blue); }
+  .dim { color: var(--text-dim); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section { padding: 96px 0; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 24px;
+    background: rgba(11,14,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-resume-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent) !important;
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-resume-btn:hover {
+    background: var(--accent) !important;
+    color: var(--bg) !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    width: 22px; height: 2px;
+    background: var(--text-dim);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    opacity: 0.5;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '▸';
+    font-size: 10px;
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(52px, 8vw, 92px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+  .hero-name .jj {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero-headline {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.3s forwards;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-dim);
+    background: var(--surface);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.5s forwards;
+  }
+
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .btn-primary:hover {
+    background: var(--accent2);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover {
+    border-color: var(--text-dim);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover {
+    color: var(--text);
+    border-color: var(--text-dim);
+  }
+
+  /* ABOUT */
+  #about { background: var(--bg2); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-2px); }
+  .stat-card:hover::before { opacity: 1; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    transition: border-color 0.2s;
+  }
+  .highlight-card:hover { border-color: rgba(74,158,255,0.3); }
+
+  .highlight-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .highlight-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .highlight-text {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* EDUCATION */
+  #education { background: var(--bg); }
+
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .edu-card::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 2px 0 0 2px;
+  }
+  .edu-card:hover { border-color: rgba(245,166,35,0.3); transform: translateX(4px); }
+
+  .edu-school {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .edu-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .edu-degree {
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .edu-degree::before { content: '↳'; color: var(--accent); flex-shrink: 0; }
+  .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-left: 8px;
+    background: rgba(245,166,35,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(245,166,35,0.2);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  .edu-badge.blue-badge {
+    background: var(--blue-dim);
+    color: var(--blue);
+    border-color: rgba(74,158,255,0.2);
+  }
+
+  .coursework {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .coursework-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .course-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-muted);
+  }
+
+  /* EXPERIENCE */
+  #experience { background: var(--bg2); }
+
+  .exp-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .exp-item {
+    position: relative;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .exp-item.visible { opacity: 1; transform: translateX(0); }
+
+  .exp-dot {
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg2);
+    box-shadow: 0 0 12px rgba(245,166,35,0.5);
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .exp-company {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .exp-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-top: 12px;
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: rgba(245,166,35,0.2); }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--text-dim);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 10px;
+    top: 4px;
+  }
+
+  .exp-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tech-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-muted);
+  }
+
+  /* LEADERSHIP */
+  #leadership { background: var(--bg); }
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .lead-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .lead-card:hover { border-color: rgba(245,166,35,0.25); transform: translateY(-3px); }
+  .lead-card:hover::before { transform: scaleX(1); }
+
+  .lead-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .lead-org {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .lead-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .lead-text {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .lead-impact {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .impact-stat {
+    text-align: center;
+  }
+  .impact-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .impact-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg2); }
+
+  .projects-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    border-color: rgba(245,166,35,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .project-category {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .project-links { display: flex; gap: 8px; }
+  .project-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 2px;
+  }
+  .project-link:hover { color: var(--accent); }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: auto;
+  }
+
+  .stack-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-muted);
+  }
+
+  /* SKILLS */
+  #skills { background: var(--bg); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .skill-group:hover { border-color: rgba(245,166,35,0.2); }
+
+  .skill-group-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-group-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    background: var(--bg3);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .skill-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  /* AWARDS */
+  #awards { background: var(--bg2); }
+
+  .awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .award-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .award-item:hover { border-color: rgba(245,166,35,0.3); transform: translateX(4px); }
+
+  .award-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .award-content { flex: 1; }
+  .award-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .award-detail {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .award-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* IMPACT */
+  #impact { background: var(--bg); position: relative; overflow: hidden; }
+
+  .impact-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(80px, 15vw, 180px);
+    font-weight: 800;
+    color: rgba(255,255,255,0.015);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.02em;
+  }
+
+  .impact-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .impact-text h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .impact-text p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .impact-quote {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    position: relative;
+  }
+  .impact-quote::before {
+    content: '"';
+    font-family: 'Syne', sans-serif;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    line-height: 1;
+  }
+  .quote-text {
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-style: italic;
+    padding-top: 20px;
+  }
+  .quote-attr {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  .impact-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .impact-num-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .impact-num-card:hover { border-color: rgba(245,166,35,0.3); }
+  .impact-num-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .impact-num-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--bg2); }
+
+  .contact-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-inner .section-label { justify-content: center; }
+  .contact-inner .section-label::before { display: none; }
+  .contact-inner .section-title { text-align: center; }
+
+  .contact-tagline {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .contact-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--border);
+    margin: 32px auto;
+  }
+
+  .contact-email {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245,166,35,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s;
+  }
+  .contact-email:hover { border-color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text-dim); }
+
+  /* SCROLL INDICATOR */
+  .scroll-line {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    z-index: 200;
+    transition: width 0.1s linear;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE NAV */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 60px 0 0 0;
+    background: rgba(11,14,20,0.98);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    backdrop-filter: blur(20px);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .section { padding: 64px 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .impact-content { grid-template-columns: 1fr; }
+    .impact-bg-text { display: none; }
+    .hero-name { font-size: clamp(44px, 12vw, 72px); }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .impact-numbers { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .leadership-grid { grid-template-columns: 1fr; }
+    .hero-cta { flex-direction: column; }
+    .btn { justify-content: center; }
+  }
+
+  /* SECTION DIVIDERS */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-line" id="scrollLine"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">jj.medina</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-resume-btn">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#education" onclick="closeMobile()">Education</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#leadership" onclick="closeMobile()">Leadership</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Computer Engineering · Indiana University Bloomington</div>
+      <h1 class="hero-name">Jaiden <span class="jj">"JJ"</span><br>Medina</h1>
+      <p class="hero-headline">
+        Building intelligent, efficient, and human-centered systems across embedded technology, robotics, data analytics, and manufacturing engineering — with a drive to lead and create lasting impact.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">Robotics</span>
+        <span class="tag">Data Analytics</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">FPGA / SystemVerilog</span>
+        <span class="tag">Manufacturing Engineering</span>
+        <span class="tag">Engineering Leadership</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+        <a href="https://github.com/jfmedina05" target="_blank" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/jaidenmedina" target="_blank" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Engineer.<br>Leader.<br>Builder.</h2>
+        <p>
+          Jaiden Medina is a Computer Engineering student at Indiana University Bloomington's Luddy School of Informatics, Computing, and Engineering, expected to graduate in 2027. He has accepted an Accelerated 4+1 M.S. offer in Intelligent Systems Engineering with a Computer Engineering specialization, beginning Fall 2026.
+        </p>
+        <p>
+          His technical work spans embedded systems, robotics, machine learning at the edge, digital logic design, data analytics, and manufacturing engineering — each grounded in a core belief that engineering should create real, human-centered impact.
+        </p>
+        <p>
+          He pairs that technical foundation with deep organizational leadership through SHPE, Tau Epsilon Kappa, and the Luddy School Student Ambassador program — building community, mentoring peers, and opening doors for underrepresented students in STEM.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Students Engaged</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Org Collaborations</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">34%</div>
+            <div class="stat-label">Production Efficiency Gain</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Internships Completed</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-highlights fade-in">
+        <div class="highlight-card">
+          <div class="highlight-icon">⚡</div>
+          <div class="highlight-title">Embedded Systems & Edge Computing</div>
+          <div class="highlight-text">From FPGA digital logic to TFLite on Raspberry Pi — designing hardware-software systems that work at the edge of computing.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">📊</div>
+          <div class="highlight-title">Data Analytics & Business Intelligence</div>
+          <div class="highlight-text">Power BI dashboards, SQL analytics, and Python models connecting raw data to real operational decisions.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🏭</div>
+          <div class="highlight-title">Manufacturing Engineering</div>
+          <div class="highlight-text">LEAN process improvement on first-of-its-kind R&D projects — engineering standardization tools and driving 34% efficiency gains.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌱</div>
+          <div class="highlight-title">Community & Leadership</div>
+          <div class="highlight-text">Founded SHPE IUB, serves as VP of Technical Development for TEK Beta Chapter, and mentors freshman ISE students at IU.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Foundation</h2>
+
+    <div class="edu-card fade-in">
+      <div class="edu-school">Indiana University Bloomington</div>
+      <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING</div>
+      <div class="edu-degree">
+        B.S. in Computer Engineering <span class="edu-badge">Class of 2027</span>
+      </div>
+      <div class="edu-degree">
+        Accelerated M.S. in Intelligent Systems Engineering — Computer Engineering Specialization <span class="edu-badge">Starting Fall 2026</span>
+      </div>
+      <div class="edu-degree">
+        Minors: Mathematics &amp; Computer Science <span class="edu-badge blue-badge">Dual Minor</span>
+      </div>
+      <div class="coursework">
+        <div class="coursework-label">Relevant Coursework</div>
+        <div class="course-tags">
+          <span class="course-tag">Embedded Systems</span>
+          <span class="course-tag">Robotics</span>
+          <span class="course-tag">Machine Learning</span>
+          <span class="course-tag">Digital Logic</span>
+          <span class="course-tag">Computer Architecture</span>
+          <span class="course-tag">Data Analytics</span>
+          <span class="course-tag">Systems Engineering</span>
+          <span class="course-tag">Probability & Statistics</span>
+          <span class="course-tag">Calculus I–III</span>
+          <span class="course-tag">Linear Algebra</span>
+          <span class="course-tag">Software Development</span>
+          <span class="course-tag">FPGA Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-card fade-in" style="--accent: #4a9eff;">
+      <div class="edu-school" style="color: var(--text);">Groups Scholar Program</div>
+      <div class="edu-sub">INDIANA UNIVERSITY BLOOMINGTON</div>
+      <div class="edu-degree">Merit-based scholarship program recognizing academic achievement and potential in science, technology, engineering, and mathematics.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Professional Work</h2>
+
+    <div class="exp-timeline">
+      <!-- Lippert -->
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
+            <div class="exp-company">Lippert</div>
+          </div>
+          <div class="exp-date">Summer Internship</div>
+        </div>
+        <div class="exp-card">
+          <ul class="exp-bullets">
+            <li>Contributed to R&amp;D and LEAN engineering for the UD Chassis Project — a first-of-its-kind chassis system for the RV industry — through design, fabrication, installation, and testing.</li>
+            <li>Helped improve production efficiency by approximately 34% while supporting safety and process improvements across the production line.</li>
+            <li>Built a Python, Excel, AutoCAD, and DraftSight-based engineering calculator to standardize calculations for modified rigs, integrating engineering data with production materials.</li>
+            <li>Supported product-launch-style implementation of a new Upper Deck chassis system from prototype through deployment.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="tech-pill">Python</span><span class="tech-pill">Excel</span><span class="tech-pill">AutoCAD</span><span class="tech-pill">DraftSight</span><span class="tech-pill">LEAN Engineering</span><span class="tech-pill">R&D</span><span class="tech-pill">Manufacturing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1st Source Bank -->
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Information Technology Intern</div>
+            <div class="exp-company">1st Source Bank</div>
+          </div>
+          <div class="exp-date">IT Internship</div>
+        </div>
+        <div class="exp-card">
+          <ul class="exp-bullets">
+            <li>Built Power BI dashboards and worked with SQL-based core queries to surface actionable insights across customer account data.</li>
+            <li>Analyzed account lifecycle and closure trends spanning acquisition, onboarding, retention, officer relationships, and transaction behavior.</li>
+            <li>Gained hands-on exposure to IBM Cognos and Hyperion EPM during enterprise system transitions and supported application rewrites.</li>
+            <li>Communicated data insights to both technical and non-technical stakeholders, bridging the gap between analytics and business decisions.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="tech-pill">Power BI</span><span class="tech-pill">SQL</span><span class="tech-pill">IBM Cognos</span><span class="tech-pill">Hyperion EPM</span><span class="tech-pill">Data Analytics</span><span class="tech-pill">Business Intelligence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nozzle 9 -->
+      <div class="exp-item fade-in">
+        <div class="exp-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Business Operations & Data Analysis Intern</div>
+            <div class="exp-company">Nozzle 9</div>
+          </div>
+          <div class="exp-date">Data Internship</div>
+        </div>
+        <div class="exp-card">
+          <ul class="exp-bullets">
+            <li>Built analytical models and structured datasets using Excel, Access, and relational data to evaluate cost structures, operational efficiency, and forecasting needs.</li>
+            <li>Supported reporting, resource planning, and cross-functional documentation connecting technical analysis to operational decision-making.</li>
+            <li>Contributed to scalability analysis and operational performance reviews to guide business strategy.</li>
+          </ul>
+          <div class="exp-tech">
+            <span class="tech-pill">Excel</span><span class="tech-pill">Access</span><span class="tech-pill">Data Modeling</span><span class="tech-pill">Reporting</span><span class="tech-pill">Operations Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="section">
+  <div class="container">
+    <div class="section-label">Leadership</div>
+    <h2 class="section-title">Community & Organizations</h2>
+    <div class="leadership-grid">
+      <!-- SHPE -->
+      <div class="lead-card fade-in">
+        <div class="lead-icon">🏆</div>
+        <div class="lead-org">SHPE · Indiana University Bloomington</div>
+        <div class="lead-role">Founder & President</div>
+        <div class="lead-text">
+          Founded and led SHPE IUB beginning in 2024 — building a community focused on mentorship, professional development, and belonging for underrepresented students in STEM. Organized events including Minorities in STEM Night, Latin Mixer, Luddy Friendsgiving, and cross-campus collaborations. SHPE IUB won the Collaboration Powerhouse Award at the IUSG Bloom Together Gala, April 2026.
+        </div>
+        <div class="lead-impact">
+          <div class="impact-stat">
+            <div class="impact-num">500+</div>
+            <span class="impact-label">students engaged</span>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-num">20+</div>
+            <span class="impact-label">org partners</span>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-num">🥇</div>
+            <span class="impact-label">collab award</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEK -->
+      <div class="lead-card fade-in">
+        <div class="lead-icon">⚙️</div>
+        <div class="lead-org">Tau Epsilon Kappa · Beta Chapter</div>
+        <div class="lead-role">VP of Technical Development · Founding Class</div>
+        <div class="lead-text">
+          Founding class member of TEK Beta Chapter at Indiana University. Leads technical development initiatives for members and pledges, including a Website Development Competition judged on design, functionality, GitHub usage, and resume-building value. Promotes hands-on technical growth, project-based learning, and peer mentorship.
+        </div>
+      </div>
+
+      <!-- Luddy Ambassador -->
+      <div class="lead-card fade-in">
+        <div class="lead-icon">🎓</div>
+        <div class="lead-org">Luddy School of Informatics, Computing, and Engineering</div>
+        <div class="lead-role">Student Ambassador</div>
+        <div class="lead-text">
+          Represents the Luddy School through outreach, student engagement, and professional communication. Supports prospective students, current students, and community-building initiatives on behalf of the school.
+        </div>
+      </div>
+
+      <!-- Mentorship -->
+      <div class="lead-card fade-in">
+        <div class="lead-icon">🌱</div>
+        <div class="lead-org">Indiana University · ISE Program</div>
+        <div class="lead-role">Freshman ISE Mentor</div>
+        <div class="lead-text">
+          Mentors incoming Intelligent Systems Engineering students as they navigate their first year at the Luddy School — offering academic guidance, project support, and community connection within the ISE program.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">What I've Built</h2>
+
+    <div class="projects-filter">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('embedded', this)">Embedded</button>
+      <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
+      <button class="filter-btn" onclick="filterProjects('hardware', this)">Hardware</button>
+      <button class="filter-btn" onclick="filterProjects('data', this)">Data</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card fade-in" data-cat="embedded">
+        <div class="project-header">
+          <div class="project-category">Robotics · Embedded</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">Romi Autonomous Vehicle</div>
+        <div class="project-desc">Embedded robotics platform featuring manual and autonomous modes, PID-based line following, I2C communication, encoder feedback, data logging, and a Python curses-based terminal interface. Includes real-time control tuning and CSV logging with Excel-based analysis.</div>
+        <div class="project-stack">
+          <span class="stack-tag">C/C++</span><span class="stack-tag">Python</span><span class="stack-tag">I2C</span><span class="stack-tag">PID Control</span><span class="stack-tag">Pololu Romi 32U4</span><span class="stack-tag">Data Logging</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="ml">
+        <div class="project-header">
+          <div class="project-category">Embedded ML · Edge AI</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">Embedded Activity Recognition</div>
+        <div class="project-desc">Edge-deployed activity recognition using a 1D CNN trained on time-series sensor data and optimized with TensorFlow Lite for deployment on resource-constrained embedded hardware.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">TensorFlow Lite</span><span class="stack-tag">1D CNN</span><span class="stack-tag">Raspberry Pi</span><span class="stack-tag">Edge AI</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="ml">
+        <div class="project-header">
+          <div class="project-category">Computer Vision · ML</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">Bone Fracture Detection CNN</div>
+        <div class="project-desc">CNN-based medical image classification system for bone fracture detection. Applied image preprocessing, data augmentation, and deep learning to build a reliable diagnostic assistance model.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">TensorFlow/Keras</span><span class="stack-tag">CNNs</span><span class="stack-tag">Medical Imaging</span><span class="stack-tag">Image Processing</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="hardware">
+        <div class="project-header">
+          <div class="project-category">FPGA · Hardware</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">SPI FPGA ↔ Raspberry Pi Link</div>
+        <div class="project-desc">Full SPI communication link between a Basys3 FPGA and Raspberry Pi in SystemVerilog. Includes controller and SPI module development with verified hardware communication and timing protocols.</div>
+        <div class="project-stack">
+          <span class="stack-tag">SystemVerilog</span><span class="stack-tag">SPI</span><span class="stack-tag">FPGA</span><span class="stack-tag">Basys3</span><span class="stack-tag">Raspberry Pi</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="data">
+        <div class="project-header">
+          <div class="project-category">Cloud · Microservice</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">ML Energy Load Microservice</div>
+        <div class="project-desc">Cloud-based microservice for energy load prediction and analysis. Integrates machine learning models with a microservice architecture for scalable, deployable inference — built with Ramiro Toledo.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Machine Learning</span><span class="stack-tag">Microservices</span><span class="stack-tag">Cloud</span><span class="stack-tag">Data Analysis</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="embedded">
+        <div class="project-header">
+          <div class="project-category">IoT · Sensors</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05" target="_blank" class="project-link">↗</a>
+          </div>
+        </div>
+        <div class="project-title">MQTT Sensor Network</div>
+        <div class="project-desc">Raspberry Pi-based IoT sensor network transmitting temperature, pressure, and accelerometer data to an MQTT broker. Real-time telemetry with structured message routing and data logging.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Raspberry Pi</span><span class="stack-tag">MQTT</span><span class="stack-tag">Python</span><span class="stack-tag">IoT</span><span class="stack-tag">Sensors</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="hardware">
+        <div class="project-header">
+          <div class="project-category">Computer Architecture · C</div>
+        </div>
+        <div class="project-title">RISC-V Serializer / Deserializer</div>
+        <div class="project-desc">C programming project for converting between RISC-V assembly instructions and numeric representations. Covers bit masking, instruction formats, opcodes, constants, and load offsets across RISC-V encoding schemes.</div>
+        <div class="project-stack">
+          <span class="stack-tag">C</span><span class="stack-tag">RISC-V</span><span class="stack-tag">Computer Architecture</span><span class="stack-tag">Systems Programming</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="hardware">
+        <div class="project-header">
+          <div class="project-category">Digital Logic · HDL</div>
+        </div>
+        <div class="project-title">ALU — Verilog/SystemVerilog</div>
+        <div class="project-desc">Designed and verified an Arithmetic Logic Unit in Verilog/SystemVerilog. Built comprehensive testbenches to verify operation correctness across arithmetic and logic instruction sets.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Verilog</span><span class="stack-tag">SystemVerilog</span><span class="stack-tag">Digital Logic</span><span class="stack-tag">Testbenches</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="embedded">
+        <div class="project-header">
+          <div class="project-category">Embedded · Hardware Design</div>
+        </div>
+        <div class="project-title">STM32 Embedded System & Enclosure</div>
+        <div class="project-desc">Designed an embedded system enclosure for STM32 hardware with standoffs, moisture protection, clear sensor access, and communication connector accessibility. Modeled in Fusion 360 for manufacturability.</div>
+        <div class="project-stack">
+          <span class="stack-tag">STM32</span><span class="stack-tag">Fusion 360</span><span class="stack-tag">Embedded Design</span><span class="stack-tag">Hardware Prototyping</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section" style="background: var(--bg2);">
+  <div class="container">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="skills-grid">
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">C</span>
+          <span class="skill-chip">C++</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">Verilog</span>
+          <span class="skill-chip">SystemVerilog</span>
+          <span class="skill-chip">RISC-V Asm</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">ML & Data</div>
+        <div class="skill-list">
+          <span class="skill-chip">TensorFlow Lite</span>
+          <span class="skill-chip">scikit-learn</span>
+          <span class="skill-chip">Pandas</span>
+          <span class="skill-chip">NumPy</span>
+          <span class="skill-chip">Power BI</span>
+          <span class="skill-chip">Excel</span>
+          <span class="skill-chip">IBM Cognos</span>
+          <span class="skill-chip">Hyperion EPM</span>
+          <span class="skill-chip">Access</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Embedded & Hardware</div>
+        <div class="skill-list">
+          <span class="skill-chip">Raspberry Pi</span>
+          <span class="skill-chip">STM32</span>
+          <span class="skill-chip">FPGA / Basys3</span>
+          <span class="skill-chip">Pololu Romi</span>
+          <span class="skill-chip">UART</span>
+          <span class="skill-chip">I2C</span>
+          <span class="skill-chip">SPI</span>
+          <span class="skill-chip">MQTT</span>
+          <span class="skill-chip">PID Control</span>
+          <span class="skill-chip">Data Logging</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in">
+        <div class="skill-group-title">Design & Tools</div>
+        <div class="skill-list">
+          <span class="skill-chip">Fusion 360</span>
+          <span class="skill-chip">AutoCAD</span>
+          <span class="skill-chip">DraftSight</span>
+          <span class="skill-chip">Git / GitHub</span>
+          <span class="skill-chip">STM32CubeIDE</span>
+          <span class="skill-chip">Vivado</span>
+          <span class="skill-chip">CLion</span>
+          <span class="skill-chip">CMake</span>
+          <span class="skill-chip">VS Code</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in" style="grid-column: span 2;">
+        <div class="skill-group-title">Professional Strengths</div>
+        <div class="skill-list">
+          <span class="skill-chip">Engineering Leadership</span>
+          <span class="skill-chip">Technical Communication</span>
+          <span class="skill-chip">Data-Driven Decision Making</span>
+          <span class="skill-chip">Cross-Functional Collaboration</span>
+          <span class="skill-chip">Manufacturing Process Improvement</span>
+          <span class="skill-chip">Community Building</span>
+          <span class="skill-chip">Project Management</span>
+          <span class="skill-chip">Peer Mentorship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <h2 class="section-title">Awards & Honors</h2>
+    <div class="awards-list">
+      <div class="award-item fade-in">
+        <div class="award-icon">🏆</div>
+        <div class="award-content">
+          <div class="award-title">Collaboration Powerhouse Award</div>
+          <div class="award-detail">SHPE IUB · IUSG Bloom Together Gala · April 2026</div>
+          <div class="award-desc">Awarded to SHPE IUB in recognition of impactful cross-campus collaborations with 20+ partner organizations and 500+ students engaged.</div>
+        </div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-icon">🎓</div>
+        <div class="award-content">
+          <div class="award-title">Jackson Intelligent Systems Scholarship</div>
+          <div class="award-detail">Luddy School of Informatics, Computing, and Engineering · August 2024</div>
+          <div class="award-desc">Merit-based scholarship recognizing academic excellence in the Intelligent Systems Engineering program.</div>
+        </div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-icon">📜</div>
+        <div class="award-content">
+          <div class="award-title">Certificate of Academic Excellence</div>
+          <div class="award-detail">Luddy School of Informatics, Computing, and Engineering · Indiana University</div>
+        </div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-icon">🎨</div>
+        <div class="award-content">
+          <div class="award-title">Best Poster Design</div>
+          <div class="award-detail">GROUPS Summer STEM Initiative Program · July 2023</div>
+        </div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-icon">📰</div>
+        <div class="award-content">
+          <div class="award-title">Featured: Indiana University Engineers Designing for Human Impact</div>
+          <div class="award-detail">USA Today Network · Indiana University</div>
+          <div class="award-desc">Featured in coverage of Indiana University's approach to training engineers with a focus on human-centered design and real-world impact. Also featured in Spanish-language coverage: <em>"El Apoyo Entre Nosotros: Abriendo nuevos caminos para los hispanos en STEM."</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact" class="section" style="background: var(--bg2);">
+  <div class="impact-bg-text">IMPACT</div>
+  <div class="container">
+    <div class="impact-content">
+      <div class="impact-text fade-in">
+        <div class="section-label">Community</div>
+        <h2>Engineering Access<br>and Belonging</h2>
+        <p>
+          Jaiden's technical work is inseparable from his community work. He founded SHPE IUB as a space where underrepresented students in STEM could find mentorship, professional connection, and a sense of belonging — not just an organization, but a real community built from scratch.
+        </p>
+        <p>
+          From Minorities in STEM Night to the Latin Mixer to Luddy Friendsgiving, every event has been intentional: connect students, open doors, and show that STEM is for everyone.
+        </p>
+        <p>
+          Through TEK Beta Chapter, he leads technical development that turns students into engineers who can build, present, and collaborate — not just complete coursework.
+        </p>
+        <div class="impact-numbers" style="margin-top: 32px;">
+          <div class="impact-num-card">
+            <div class="impact-num-val">500+</div>
+            <div class="impact-num-label">Students Impacted</div>
+          </div>
+          <div class="impact-num-card">
+            <div class="impact-num-val">20+</div>
+            <div class="impact-num-label">Org Collaborations</div>
+          </div>
+          <div class="impact-num-card">
+            <div class="impact-num-val">2024</div>
+            <div class="impact-num-label">SHPE IUB Founded</div>
+          </div>
+          <div class="impact-num-card">
+            <div class="impact-num-val">🥇</div>
+            <div class="impact-num-label">Collab Powerhouse Award</div>
+          </div>
+        </div>
+      </div>
+      <div class="impact-quote fade-in">
+        <div class="quote-text">
+          Engineering is most powerful when it serves people — not just processes or systems. Every project I build, every community I help grow, and every student I mentor is part of the same mission: make technology more accessible, more impactful, and more human.
+        </div>
+        <div class="quote-attr">— Jaiden "JJ" Medina</div>
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;">Also featured in</div>
+          <div style="font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.6;">"El Apoyo Entre Nosotros: Abriendo nuevos caminos para los hispanos en STEM"<br><span style="font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted);">Spanish-language coverage · Indiana University</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section" style="background: var(--bg);">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-tagline">
+        Open to conversations about internships, co-ops, embedded systems, robotics, data analytics, manufacturing engineering, or student leadership. Let's build something meaningful.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:jfmedina@iu.edu" class="btn btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+          Email Me
+        </a>
+        <a href="https://linkedin.com/in/jaidenmedina" target="_blank" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/jfmedina05" target="_blank" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="btn btn-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+      <div class="contact-divider"></div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em;">
+        IU GitHub Enterprise: <a href="https://github.iu.edu/jfmedina" target="_blank" style="color: var(--blue); text-decoration: none;">github.iu.edu/jfmedina</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">© 2026 Jaiden "JJ" Medina · Computer Engineering @ IU</div>
+    <div class="footer-links">
+      <a href="https://github.com/jfmedina05" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/jaidenmedina" target="_blank">LinkedIn</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('scrollLine');
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    el.style.width = pct + '%';
+  });
+
+  // Intersection Observer for fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in, .exp-item').forEach(el => observer.observe(el));
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Project filter
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Stagger fade-in delays
+  document.querySelectorAll('.project-card').forEach((card, i) => {
+    card.style.transitionDelay = (i % 3) * 0.08 + 's';
+  });
+  document.querySelectorAll('.lead-card').forEach((card, i) => {
+    card.style.transitionDelay = i * 0.1 + 's';
+  });
+</script>
+</body>
+</html>
