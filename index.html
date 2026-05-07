@@ -1352,6 +1352,17 @@
       </div>
     </div>
 
+    <div class="edu-card fade-in" style="--accent: #f5a623;">
+      <div class="edu-school">Jackson Intelligent Systems Scholarship</div>
+      <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING · AUGUST 2024</div>
+      <div class="edu-degree">
+        Competitive scholarship supporting outstanding undergraduate students pursuing Intelligent Systems Engineering at Luddy.
+      </div>
+      <div class="edu-degree">
+        Selected based on academic achievement and promise in the field, recognizing strong potential to excel in ISE and make meaningful contributions through engineering studies.
+      </div>
+    </div>
+
     <div class="edu-card fade-in" style="--accent: #4a9eff;">
       <div class="edu-school" style="color: var(--text);">Groups Scholar Program</div>
       <div class="edu-sub">INDIANA UNIVERSITY BLOOMINGTON</div>
@@ -1483,10 +1494,11 @@
 <section id="projects" class="section">
   <div class="container">
     <div class="section-label">Projects</div>
-    <h2 class="section-title">What I've Built</h2>
+    <h2 class="section-title">Technical Projects & Professional Builds</h2>
 
     <div class="projects-filter">
-      <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <<button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+      <button class="filter-btn" onclick="filterProjects('professional', this)">Professional</button>
       <button class="filter-btn" onclick="filterProjects('embedded', this)">Embedded</button>
       <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
       <button class="filter-btn" onclick="filterProjects('hardware', this)">Hardware</button>
@@ -1494,6 +1506,43 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card fade-in" data-cat="professional">
+        <div class="project-header">
+          <div class="project-category">Professional · Business Intelligence</div>
+        </div>
+        <div class="project-title">Account Closures Analysis Dashboard</div>
+        <div class="project-desc">
+          Built an interactive Power BI dashboard at 1st Source Bank to investigate rapid account closures and identify patterns across account opening trends, closure rates, onboarding, officer relationships, e-student accounts, returning account behavior, and transaction activity. Queried data using SQL, modeled it with DAX, and presented insights to technical and non-technical stakeholders to support retention and operational decision-making.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Power BI</span>
+          <span class="stack-tag">SQL</span>
+          <span class="stack-tag">DAX</span>
+          <span class="stack-tag">Data Modeling</span>
+          <span class="stack-tag">Business Intelligence</span>
+          <span class="stack-tag">Stakeholder Communication</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cat="professional">
+        <div class="project-header">
+          <div class="project-category">Professional · Manufacturing Engineering</div>
+        </div>
+        <div class="project-title">UD Chassis Project — Engineering Automation & Product Innovation</div>
+        <div class="project-desc">
+          Contributed to Lippert's first-of-its-kind Upper Deck Chassis project for the RV manufacturing industry through R&amp;D, LEAN engineering, prototype design, fabrication, installation, testing, and product launch support. Programmed a custom engineering calculator using Python, Excel, AutoCAD, and DraftSight to standardize modified rig calculations, connect engineering data to production materials, reduce manual errors, improve safety, and help achieve an approximately 34% production efficiency increase.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Excel</span>
+          <span class="stack-tag">AutoCAD</span>
+          <span class="stack-tag">DraftSight</span>
+          <span class="stack-tag">LEAN Engineering</span>
+          <span class="stack-tag">R&amp;D</span>
+          <span class="stack-tag">Manufacturing</span>
+        </div>
+      </div>      
 
       <div class="project-card fade-in" data-cat="embedded">
         <div class="project-header">
@@ -1715,14 +1764,6 @@
           <div class="award-title">Collaboration Powerhouse Award</div>
           <div class="award-detail">SHPE IUB · IUSG Bloom Together Gala · April 2026</div>
           <div class="award-desc">Awarded to SHPE IUB in recognition of impactful cross-campus collaborations with 20+ partner organizations and 500+ students engaged.</div>
-        </div>
-      </div>
-      <div class="award-item fade-in">
-        <div class="award-icon">🎓</div>
-        <div class="award-content">
-          <div class="award-title">Jackson Intelligent Systems Scholarship</div>
-          <div class="award-detail">Luddy School of Informatics, Computing, and Engineering · August 2024</div>
-          <div class="award-desc">Merit-based scholarship recognizing academic excellence in the Intelligent Systems Engineering program.</div>
         </div>
       </div>
       <div class="award-item fade-in">
