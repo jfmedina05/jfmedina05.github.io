@@ -811,6 +811,31 @@
     color: var(--text-muted);
   }
 
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  .project-action-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    background: rgba(245,166,35,0.08);
+    transition: all 0.2s;
+  }
+
+  .project-action-btn:hover {
+    background: var(--accent);
+    color: var(--bg);
+    transform: translateY(-1px);
+  }  
+
   /* SKILLS */
   #skills { background: var(--bg); }
 
@@ -1554,16 +1579,27 @@
 
       <div class="project-card fade-in" data-cat="academic">
         <div class="project-header">
-          <div class="project-category">Academic Project · Microelectronics</div>
+          <div class="project-category">Academic Research · Microelectronics</div>
+          <div class="project-links">
+            <a href="docs/radiation-effects-report.pdf" target="_blank" rel="noopener noreferrer" class="project-link">↗</a>
+          </div>
         </div>
         <div class="project-title">Radiation-Induced Fault Characterization in Sequential Logic</div>
         <div class="project-desc">
           Investigated how radiation-induced charge disturbances affect the reliability of sequential CMOS logic by modeling transient current injections in a 4-bit master-slave D flip-flop shift register. Used LTspice simulations to analyze single-event transients, single-event upsets, node-level sensitivity, clock-dependent vulnerability, and master versus slave latch susceptibility.
         </div>
+
+        <div class="project-actions">
+          <a href="docs/radiation-effects-report.pdf" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            View Final Report
+          </a>
+        </div>
+
         <div class="project-stack">
           <span class="stack-tag">LTspice</span>
           <span class="stack-tag">CMOS Logic</span>
           <span class="stack-tag">Sequential Circuits</span>
+          <span class="stack-tag">Transient Injection</span>
           <span class="stack-tag">Fault Modeling</span>
           <span class="stack-tag">Microelectronics</span>
           <span class="stack-tag">Reliability Analysis</span>
@@ -1591,20 +1627,30 @@
       <div class="project-card fade-in" data-cat="academic">
         <div class="project-header">
           <div class="project-category">Academic Project · AI Policy</div>
+          <div class="project-links">
+            <a href="docs/ai-policy-framework-presentation.pdf" target="_blank" rel="noopener noreferrer" class="project-link">↗</a>
+          </div>
         </div>
         <div class="project-title">National AI Policy Framework for a Developing Global Economy</div>
         <div class="project-desc">
           Designed a national AI policy framework for a fictional developing country, focusing on responsible AI adoption, agricultural modernization, ethics, governance, data rights, education, workforce development, and public-sector AI. Compared global AI policy models and delivered a policy brief, presentation, and press-style defense.
         </div>
+
+        <div class="project-actions">
+          <a href="docs/ai-policy-framework-presentation.pdf" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            View Presentation
+          </a>
+        </div>
+
         <div class="project-stack">
           <span class="stack-tag">AI Governance</span>
           <span class="stack-tag">Policy Design</span>
           <span class="stack-tag">Risk Analysis</span>
           <span class="stack-tag">Ethics</span>
+          <span class="stack-tag">Comparative Policy</span>
           <span class="stack-tag">Strategic Communication</span>
-          <span class="stack-tag">Research</span>
         </div>
-      </div>      
+      </div>
 
       <div class="project-card fade-in" data-cat="embedded">
         <div class="project-header">
@@ -1617,6 +1663,13 @@
         <div class="project-desc">
           Autonomous and manual control system for a Pololu Romi robot using closed-loop control, state machines, embedded C/C++, Python tooling, I2C communication, PID line following, encoder feedback, and data logging.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/romi-autonomous-vehicle" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+        
         <div class="project-stack">
           <span class="stack-tag">C/C++</span>
           <span class="stack-tag">Python</span>
@@ -1638,6 +1691,13 @@
         <div class="project-desc">
           FPGA hardware acceleration projects using SystemVerilog, AXI, DMA, and hardware/software co-design concepts. Focuses on digital design, acceleration, embedded systems, and performance improvements over software implementations.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/fpga-digital-design-accelerators" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+      
         <div class="project-stack">
           <span class="stack-tag">SystemVerilog</span>
           <span class="stack-tag">FPGA</span>
@@ -1659,6 +1719,13 @@
         <div class="project-desc">
           Embedded systems project using STM32 hardware, firmware, peripherals, system integration, and enclosure design. Includes hardware-aware design decisions such as standoffs, sensor access, moisture protection, and connector accessibility.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/stm32-embedded-systems-project" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+        
         <div class="project-stack">
           <span class="stack-tag">C</span>
           <span class="stack-tag">STM32</span>
@@ -1680,6 +1747,13 @@
         <div class="project-desc">
           Cloud-deployed machine learning microservice for predicting building energy loads using a Random Forest model and Flask API. Built around deployable inference, data analysis, and microservice architecture.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/ml-energy-load-microservice" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+        
         <div class="project-stack">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">Flask</span>
@@ -1701,6 +1775,13 @@
         <div class="project-desc">
           Embedded machine learning system for real-time activity recognition on Raspberry Pi. Uses time-series sensor data, edge computing concepts, and TensorFlow Lite deployment for resource-constrained hardware.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/embedded-activity-recognition" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+        
         <div class="project-stack">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">TensorFlow Lite</span>
@@ -1721,6 +1802,13 @@
         <div class="project-desc">
           CNN-based medical imaging model for bone fracture detection. Applies computer vision, image preprocessing, deep learning, and healthcare-focused machine learning to support diagnostic image classification.
         </div>
+
+       <div class="project-actions">
+         <a href="https://github.com/jfmedina05/bone-fracture-detection-cnn" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+           Go to GitHub Project
+         </a>
+       </div>
+        
         <div class="project-stack">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">TensorFlow</span>
