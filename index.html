@@ -412,6 +412,43 @@
     color: var(--text-dim);
     line-height: 1.5;
   }
+  .about-focus-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.about-focus-card {
+  min-height: 170px;
+}
+
+.focus-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.focus-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.focus-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .about-focus-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
   /* EDUCATION */
   #education { background: var(--bg); }
@@ -1299,25 +1336,39 @@
         <p>
           He pairs that technical foundation with deep organizational leadership through SHPE, Tau Epsilon Kappa, and the Luddy School Student Ambassador program — building community, mentoring peers, and opening doors for underrepresented students in STEM.
         </p>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-num">500+</div>
-            <div class="stat-label">Students Engaged</div>
+        <div class="about-stats about-focus-grid">
+          <div class="stat-card about-focus-card">
+            <div class="focus-kicker">Career Direction</div>
+            <div class="focus-title">Healthcare & Medical Devices</div>
+            <div class="focus-text">
+              Focused on building reliable, human-centered systems that improve daily life through embedded technology, data, and intelligent engineering.
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-num">20+</div>
-            <div class="stat-label">Org Collaborations</div>
+
+          <div class="stat-card about-focus-card">
+            <div class="focus-kicker">Technical Core</div>
+            <div class="focus-title">Embedded Systems & Edge AI</div>
+            <div class="focus-text">
+              Experience with robotics, Raspberry Pi, STM32, FPGA design, TensorFlow Lite, real-time control, and hardware-software integration.
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-num">34%</div>
-            <div class="stat-label">Production Efficiency Gain</div>
+
+          <div class="stat-card about-focus-card">
+            <div class="focus-kicker">Applied Engineering</div>
+            <div class="focus-title">Data-Driven Decision Making</div>
+            <div class="focus-text">
+              Built dashboards, analysis tools, and engineering workflows using SQL, Power BI, Python, Excel, and DAX to support real operational decisions.
+            </div>
           </div>
-          <div class="stat-card">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Internships Completed</div>
+
+          <div class="stat-card about-focus-card">
+            <div class="focus-kicker">Leadership Impact</div>
+            <div class="focus-title">Access, Mentorship & Community</div>
+            <div class="focus-text">
+              Leads through SHPE, TEK, and Luddy by building spaces where students can find mentorship, technical growth, and belonging in STEM.
+            </div>
           </div>
         </div>
-      </div>
       <div class="about-highlights fade-in">
         <div class="highlight-card">
           <div class="highlight-icon">⚡</div>
