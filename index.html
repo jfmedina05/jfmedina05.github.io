@@ -811,220 +811,273 @@
     margin-bottom: 2px;
   }
 }
-  /* LEADERSHIP */
-  #leadership { background: var(--bg); }
 
-  .leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
 
-  .lead-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .lead-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--blue));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .lead-card:hover { border-color: rgba(245,166,35,0.25); transform: translateY(-3px); }
-  .lead-card:hover::before { transform: scaleX(1); }
+/* LEADERSHIP */
+#leadership {
+  background: var(--bg);
+}
 
-  .lead-icon {
-    font-size: 28px;
-    margin-bottom: 14px;
-  }
-  .lead-org {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .lead-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-  .lead-text {
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.6;
-  }
-  .lead-impact {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-  .impact-stat {
-    text-align: center;
-  }
-  .impact-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 20px;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .impact-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    color: var(--text-muted);
-    display: block;
-  }
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
 
-  /* PROJECTS */
-  #projects { background: var(--bg2); }
+.lead-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
 
-  .projects-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 36px;
-  }
+.lead-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
 
-  .filter-btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 6px 14px;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn:hover, .filter-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
-  }
+.lead-card:hover {
+  border-color: rgba(245,166,35,0.25);
+  transform: translateY(-3px);
+}
 
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-  }
+.lead-card:hover::before {
+  transform: scaleX(1);
+}
 
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-  .project-card:hover {
-    border-color: rgba(245,166,35,0.3);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-  }
+.lead-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
 
-  .project-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 12px;
-  }
+/* Logo used in leadership cards */
+.lead-logo-wrap {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .project-category {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--blue);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+.lead-logo-banner {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
-  .project-links { display: flex; gap: 8px; }
-  .project-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    padding: 2px;
-  }
-  .project-link:hover { color: var(--accent); }
+.lead-org {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
 
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
+.lead-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
 
-  .project-desc {
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.6;
-    flex-grow: 1;
-    margin-bottom: 16px;
-  }
+.lead-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
 
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: auto;
-  }
+.lead-impact {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
 
-  .stack-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 2px 8px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-muted);
-  }
+.impact-stat {
+  text-align: center;
+}
 
-  .project-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0;
-  }
+.impact-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1;
+}
 
-  .project-action-btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 6px 12px;
-    border-radius: var(--radius);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-    background: rgba(245,166,35,0.08);
-    transition: all 0.2s;
-  }
+.impact-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  display: block;
+}
 
-  .project-action-btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-    transform: translateY(-1px);
-  }  
+/* PROJECTS */
+#projects {
+  background: var(--bg2);
+}
 
+.projects-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.filter-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  border-color: rgba(245,166,35,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.project-category {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 2px;
+}
+
+.project-link:hover {
+  color: var(--accent);
+}
+
+.project-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.project-action-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(245,166,35,0.08);
+  transition: all 0.2s;
+}
+
+.project-action-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+}
+
+.stack-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+  
   /* SKILLS */
   #skills { background: var(--bg); }
 
@@ -1660,6 +1713,7 @@
         As a GROUPS Scholar, I engage in initiatives that promote academic excellence, campus involvement, service, and long-term leadership impact within the IU community and beyond.
       </div>
     </div>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -1781,7 +1835,10 @@
     <div class="leadership-grid">
       <!-- SHPE -->
       <div class="lead-card fade-in">
-        <div class="lead-icon">🏆</div>
+        <div class="lead-logo-wrap">
+          <img src="assets/logos/shpe-iub-banner.jpg" alt="SHPE Indiana University Bloomington logo" class="lead-logo-banner">
+        </div>
+
         <div class="lead-org">SHPE · Indiana University Bloomington</div>
         <div class="lead-role">Founder & President</div>
         <div class="lead-text">
@@ -1805,7 +1862,10 @@
 
       <!-- TEK -->
       <div class="lead-card fade-in">
-        <div class="lead-icon">⚙️</div>
+        <div class="lead-logo-wrap">
+          <img src="assets/logos/tek-beta-banner.png" alt="Tau Epsilon Kappa Beta Chapter logo" class="lead-logo-banner">
+        </div>
+
         <div class="lead-org">Tau Epsilon Kappa · Beta Chapter</div>
         <div class="lead-role">VP of Technical Development · Founding Class</div>
         <div class="lead-text">
