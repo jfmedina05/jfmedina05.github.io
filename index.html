@@ -881,6 +881,17 @@
   object-fit: contain;
 }
 
+/* TEK logo-specific styling */
+.tek-logo-wrap {
+  background: linear-gradient(135deg, #031b3f, #111247, #2d1365);
+  border: 1px solid rgba(74,158,255,0.25);
+  padding: 4px;
+}
+
+.tek-logo-banner {
+  border-radius: 6px;
+}
+
 .lead-org {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
@@ -1862,8 +1873,8 @@
 
       <!-- TEK -->
       <div class="lead-card fade-in">
-        <div class="lead-logo-wrap">
-          <img src="assets/logos/tek-beta-banner.png" alt="Tau Epsilon Kappa Beta Chapter logo" class="lead-logo-banner">
+        <div class="lead-logo-wrap tek-logo-wrap">
+          <img src="assets/logos/tek-beta-banner.png" alt="Tau Epsilon Kappa Beta Chapter logo" class="lead-logo-banner tek-logo-banner">
         </div>
 
         <div class="lead-org">Tau Epsilon Kappa · Beta Chapter</div>
