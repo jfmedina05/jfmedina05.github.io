@@ -600,122 +600,62 @@
     color: var(--text-muted);
   }
 
-  /* EXPERIENCE */
-  #experience { background: var(--bg2); }
+/* EXPERIENCE */
+#experience {
+  background: var(--bg2);
+}
 
-  .exp-timeline {
-    position: relative;
-    padding-left: 28px;
-  }
-  .exp-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-  }
+.exp-timeline {
+  position: relative;
+  padding-left: 28px;
+}
 
-  .exp-item {
-    position: relative;
-    margin-bottom: 48px;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  .exp-item.visible { opacity: 1; transform: translateX(0); }
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
 
-  .exp-dot {
-    position: absolute;
-    left: -33px;
-    top: 6px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--bg2);
-    box-shadow: 0 0 12px rgba(245,166,35,0.5);
-  }
+.exp-item {
+  --company-accent: var(--accent);
+  position: relative;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s, transform 0.5s;
+}
 
-  .exp-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
+.exp-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-  .exp-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .exp-company {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-  .exp-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
+.exp-dot {
+  position: absolute;
+  left: -33px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--company-accent);
+  border: 2px solid var(--bg2);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--company-accent) 55%, transparent);
+}
 
-  .exp-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    margin-top: 12px;
-    transition: border-color 0.2s;
-  }
-  .exp-card:hover { border-color: rgba(245,166,35,0.2); }
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+}
 
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .exp-bullets li {
-    font-size: 14px;
-    color: var(--text-dim);
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.55;
-  }
-  .exp-bullets li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 10px;
-    top: 4px;
-  }
-
-  .exp-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .tech-pill {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 3px 10px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-muted);
-  }
-
-  .company-header {
+.company-header {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -731,34 +671,89 @@
   object-fit: contain;
 }
 
-.exp-item {
-  --company-accent: var(--accent);
+.exp-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
 }
 
-.exp-item .exp-dot {
-  background: var(--company-accent);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--company-accent) 55%, transparent);
-}
-
-.exp-item .exp-company {
+.exp-company {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
   color: var(--company-accent);
+  margin-bottom: 4px;
+}
+
+.exp-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-top: 6px;
 }
 
 .exp-card {
-  border-color: rgba(255,255,255,0.08);
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 12px;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
 .exp-item:hover .exp-card {
   border-color: color-mix(in srgb, var(--company-accent) 35%, transparent);
 }
 
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  font-size: 14px;
+  color: var(--text-dim);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.exp-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--company-accent);
+  font-size: 10px;
+  top: 4px;
+}
+
+/* Company Recognition Badges */
 .exp-recognition {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--border);
+}
+
+.recognition-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.recognition-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 4px;
 }
 
 .recognition-pill {
@@ -771,10 +766,51 @@
   background: color-mix(in srgb, var(--company-accent) 10%, transparent);
 }
 
+/* Technology Pills */
 .exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
+.tech-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+
+/* Mobile Experience Layout */
+@media (max-width: 768px) {
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .company-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .exp-date {
+    margin-top: 0;
+  }
+
+  .recognition-group {
+    align-items: flex-start;
+  }
+
+  .recognition-label {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
   /* LEADERSHIP */
   #leadership { background: var(--bg); }
 
@@ -1658,9 +1694,18 @@
           </ul>
 
           <div class="exp-recognition">
-            <span class="recognition-pill">Newsweek Most Responsible Companies 2024</span>
-            <span class="recognition-pill">#221 Overall</span>
-            <span class="recognition-pill">#5 Automotive &amp; Components</span>
+            <div class="recognition-group">
+              <span class="recognition-label">Fortune</span>
+              <span class="recognition-pill">Fortune 1000</span>
+              <span class="recognition-pill">Rank #814</span>
+            </div>
+
+            <div class="recognition-group">
+              <span class="recognition-label">Newsweek</span>
+              <span class="recognition-pill">America’s Most Responsible Companies 2024</span>
+              <span class="recognition-pill">#221 Overall</span>
+              <span class="recognition-pill">#5 Automotive &amp; Components</span>
+            </div>
           </div>
 
           <div class="exp-tech">
@@ -1699,10 +1744,17 @@
           </ul>
 
           <div class="exp-recognition">
-            <span class="recognition-pill">Forbes America’s Best Banks 2026</span>
-            <span class="recognition-pill">#11 Overall</span>
-            <span class="recognition-pill">Best-In-State Banks 2022–2025</span>
-            <span class="recognition-pill">#2 in Indiana</span>
+            <div class="recognition-group">
+              <span class="recognition-label">Forbes</span>
+              <span class="recognition-pill">America’s Best Banks 2026</span>
+              <span class="recognition-pill">#11 Overall</span>
+            </div>
+
+            <div class="recognition-group">
+              <span class="recognition-label">Forbes</span>
+              <span class="recognition-pill">Best-In-State Banks 2022–2025</span>
+              <span class="recognition-pill">#2 in Indiana</span>
+            </div>
           </div>
 
           <div class="exp-tech">
