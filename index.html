@@ -387,6 +387,62 @@
     gap: 16px;
   }
 
+  .video-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.video-card:hover {
+  border-color: rgba(245,166,35,0.3);
+  transform: translateY(-2px);
+}
+
+.video-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.video-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.video-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
   .highlight-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -1418,6 +1474,24 @@
           <div class="highlight-title">Access, Mentorship & Community</div>
           <div class="highlight-text">
             Leads through SHPE, TEK, and Luddy by creating spaces where students can find mentorship, technical growth, and belonging in STEM.
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-kicker">Featured Video</div>
+          <div class="video-title">Luddy School Feature</div>
+          <div class="video-text">
+            Featured in a Luddy School of Informatics, Computing, and Engineering video where I share my confidence in becoming an engineer and building meaningful technology.
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/IOzIr4dLD-E?rel=0"
+              title="Luddy School of Informatics, Computing, and Engineering Feature Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
           </div>
         </div>
 
