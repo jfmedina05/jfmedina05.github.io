@@ -933,7 +933,151 @@
   display: block;
 }
 
+/* PROJECTS */
+#projects {
+  background: var(--bg2);
+}
 
+.projects-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.filter-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  border-color: rgba(245,166,35,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.project-category {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 2px;
+}
+
+.project-link:hover {
+  color: var(--accent);
+}
+
+.project-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.project-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 16px;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.project-action-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  background: rgba(245,166,35,0.08);
+  transition: all 0.2s;
+}
+
+.project-action-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: auto;
+}
+
+.stack-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+  
   /* SKILLS */
   #skills { background: var(--bg); }
 
@@ -1569,6 +1713,7 @@
         As a GROUPS Scholar, I engage in initiatives that promote academic excellence, campus involvement, service, and long-term leadership impact within the IU community and beyond.
       </div>
     </div>
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
