@@ -715,6 +715,66 @@
     color: var(--text-muted);
   }
 
+  .company-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.company-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 8px;
+  object-fit: contain;
+}
+
+.exp-item {
+  --company-accent: var(--accent);
+}
+
+.exp-item .exp-dot {
+  background: var(--company-accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--company-accent) 55%, transparent);
+}
+
+.exp-item .exp-company {
+  color: var(--company-accent);
+}
+
+.exp-card {
+  border-color: rgba(255,255,255,0.08);
+}
+
+.exp-item:hover .exp-card {
+  border-color: color-mix(in srgb, var(--company-accent) 35%, transparent);
+}
+
+.exp-recognition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.recognition-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
+  color: var(--company-accent);
+  background: color-mix(in srgb, var(--company-accent) 10%, transparent);
+}
+
+.exp-tech {
+  margin-top: 12px;
+}
+
   /* LEADERSHIP */
   #leadership { background: var(--bg); }
 
@@ -1573,16 +1633,22 @@
     <h2 class="section-title">Professional Work</h2>
 
     <div class="exp-timeline">
+
       <!-- Lippert -->
-      <div class="exp-item fade-in">
+      <div class="exp-item fade-in" style="--company-accent: #ff8a00;">
         <div class="exp-dot"></div>
+
         <div class="exp-header">
-          <div>
-            <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
-            <div class="exp-company">Lippert</div>
+          <div class="company-header">
+            <img src="assets/logos/lippert-logo.png" alt="Lippert logo" class="company-logo">
+            <div>
+              <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
+              <div class="exp-company">Lippert</div>
+            </div>
           </div>
           <div class="exp-date">Summer Internship</div>
         </div>
+
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Contributed to R&amp;D and LEAN engineering for the UD Chassis Project — a first-of-its-kind chassis system for the RV industry — through design, fabrication, installation, and testing.</li>
@@ -1590,22 +1656,40 @@
             <li>Built a Python, Excel, AutoCAD, and DraftSight-based engineering calculator to standardize calculations for modified rigs, integrating engineering data with production materials.</li>
             <li>Supported product-launch-style implementation of a new Upper Deck chassis system from prototype through deployment.</li>
           </ul>
+
+          <div class="exp-recognition">
+            <span class="recognition-pill">Newsweek Most Responsible Companies 2024</span>
+            <span class="recognition-pill">#221 Overall</span>
+            <span class="recognition-pill">#5 Automotive &amp; Components</span>
+          </div>
+
           <div class="exp-tech">
-            <span class="tech-pill">Python</span><span class="tech-pill">Excel</span><span class="tech-pill">AutoCAD</span><span class="tech-pill">DraftSight</span><span class="tech-pill">LEAN Engineering</span><span class="tech-pill">R&D</span><span class="tech-pill">Manufacturing</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Excel</span>
+            <span class="tech-pill">AutoCAD</span>
+            <span class="tech-pill">DraftSight</span>
+            <span class="tech-pill">LEAN Engineering</span>
+            <span class="tech-pill">R&amp;D</span>
+            <span class="tech-pill">Manufacturing</span>
           </div>
         </div>
       </div>
 
       <!-- 1st Source Bank -->
-      <div class="exp-item fade-in">
+      <div class="exp-item fade-in" style="--company-accent: #f5c542;">
         <div class="exp-dot"></div>
+
         <div class="exp-header">
-          <div>
-            <div class="exp-role">Information Technology Intern</div>
-            <div class="exp-company">1st Source Bank</div>
+          <div class="company-header">
+            <img src="assets/logos/1st-source-bank-logo.png" alt="1st Source Bank logo" class="company-logo">
+            <div>
+              <div class="exp-role">Information Technology Intern</div>
+              <div class="exp-company">1st Source Bank</div>
+            </div>
           </div>
           <div class="exp-date">IT Internship</div>
         </div>
+
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Built Power BI dashboards and worked with SQL-based core queries to surface actionable insights across customer account data.</li>
@@ -1613,14 +1697,29 @@
             <li>Gained hands-on exposure to IBM Cognos and Hyperion EPM during enterprise system transitions and supported application rewrites.</li>
             <li>Communicated data insights to both technical and non-technical stakeholders, bridging the gap between analytics and business decisions.</li>
           </ul>
+
+          <div class="exp-recognition">
+            <span class="recognition-pill">Forbes America’s Best Banks 2026</span>
+            <span class="recognition-pill">#11 Overall</span>
+            <span class="recognition-pill">Best-In-State Banks 2022–2025</span>
+            <span class="recognition-pill">#2 in Indiana</span>
+          </div>
+
           <div class="exp-tech">
-            <span class="tech-pill">Power BI</span><span class="tech-pill">SQL</span><span class="tech-pill">IBM Cognos</span><span class="tech-pill">Hyperion EPM</span><span class="tech-pill">Data Analytics</span><span class="tech-pill">Business Intelligence</span>
+            <span class="tech-pill">Power BI</span>
+            <span class="tech-pill">SQL</span>
+            <span class="tech-pill">DAX</span>
+            <span class="tech-pill">IBM Cognos</span>
+            <span class="tech-pill">Hyperion EPM</span>
+            <span class="tech-pill">Data Analytics</span>
+            <span class="tech-pill">Business Intelligence</span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</section>          
+</section> 
       
 <!-- LEADERSHIP -->
 <section id="leadership" class="section">
