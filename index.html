@@ -387,6 +387,62 @@
     gap: 16px;
   }
 
+  .video-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.video-card:hover {
+  border-color: rgba(245,166,35,0.3);
+  transform: translateY(-2px);
+}
+
+.video-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.video-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.video-text {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
   .highlight-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -544,121 +600,217 @@
     color: var(--text-muted);
   }
 
-  /* EXPERIENCE */
-  #experience { background: var(--bg2); }
+/* EXPERIENCE */
+#experience {
+  background: var(--bg2);
+}
 
-  .exp-timeline {
-    position: relative;
-    padding-left: 28px;
-  }
-  .exp-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-  }
+.exp-timeline {
+  position: relative;
+  padding-left: 28px;
+}
 
-  .exp-item {
-    position: relative;
-    margin-bottom: 48px;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  .exp-item.visible { opacity: 1; transform: translateX(0); }
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
 
-  .exp-dot {
-    position: absolute;
-    left: -33px;
-    top: 6px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--bg2);
-    box-shadow: 0 0 12px rgba(245,166,35,0.5);
-  }
+.exp-item {
+  --company-accent: var(--accent);
+  position: relative;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s, transform 0.5s;
+}
 
+.exp-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.exp-dot {
+  position: absolute;
+  left: -33px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--company-accent);
+  border: 2px solid var(--bg2);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--company-accent) 55%, transparent);
+}
+
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.company-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 8px;
+  object-fit: contain;
+}
+
+.exp-role {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.exp-company {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--company-accent);
+  margin-bottom: 4px;
+}
+
+.exp-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-top: 6px;
+}
+
+.exp-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.exp-item:hover .exp-card {
+  border-color: color-mix(in srgb, var(--company-accent) 35%, transparent);
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  font-size: 14px;
+  color: var(--text-dim);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.exp-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--company-accent);
+  font-size: 10px;
+  top: 4px;
+}
+
+/* Company Recognition Badges */
+.exp-recognition {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.recognition-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.recognition-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.recognition-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
+  color: var(--company-accent);
+  background: color-mix(in srgb, var(--company-accent) 10%, transparent);
+}
+
+/* Technology Pills */
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.tech-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+
+/* Mobile Experience Layout */
+@media (max-width: 768px) {
   .exp-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-
-  .exp-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-  }
-  .exp-company {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-  .exp-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-
-  .exp-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    margin-top: 12px;
-    transition: border-color 0.2s;
-  }
-  .exp-card:hover { border-color: rgba(245,166,35,0.2); }
-
-  .exp-bullets {
-    list-style: none;
-    display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-  .exp-bullets li {
-    font-size: 14px;
-    color: var(--text-dim);
-    padding-left: 18px;
-    position: relative;
-    line-height: 1.55;
-  }
-  .exp-bullets li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 10px;
-    top: 4px;
+    align-items: flex-start;
   }
 
-  .exp-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
+  .company-logo {
+    width: 48px;
+    height: 48px;
   }
 
-  .tech-pill {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 3px 10px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-muted);
+  .exp-date {
+    margin-top: 0;
   }
 
+  .recognition-group {
+    align-items: flex-start;
+  }
+
+  .recognition-label {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
   /* LEADERSHIP */
   #leadership { background: var(--bg); }
 
@@ -1421,6 +1573,24 @@
           </div>
         </div>
 
+        <div class="video-card">
+          <div class="video-kicker">Featured Video</div>
+          <div class="video-title">Luddy School Feature</div>
+          <div class="video-text">
+            Featured at the beginning of a Luddy School of Informatics, Computing, and Engineering advertisement, opening the video with: “I'm immensely confident that I am going to be an amazing engineer.”
+          </div>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/IOzIr4dLD-E?rel=0"
+              title="Luddy School of Informatics, Computing, and Engineering Feature Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -1499,16 +1669,22 @@
     <h2 class="section-title">Professional Work</h2>
 
     <div class="exp-timeline">
+
       <!-- Lippert -->
-      <div class="exp-item fade-in">
+      <div class="exp-item fade-in" style="--company-accent: #ff8a00;">
         <div class="exp-dot"></div>
+
         <div class="exp-header">
-          <div>
-            <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
-            <div class="exp-company">Lippert</div>
+          <div class="company-header">
+            <img src="assets/logos/lippert-logo.png" alt="Lippert logo" class="company-logo">
+            <div>
+              <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
+              <div class="exp-company">Lippert</div>
+            </div>
           </div>
           <div class="exp-date">Summer Internship</div>
         </div>
+
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Contributed to R&amp;D and LEAN engineering for the UD Chassis Project — a first-of-its-kind chassis system for the RV industry — through design, fabrication, installation, and testing.</li>
@@ -1516,22 +1692,49 @@
             <li>Built a Python, Excel, AutoCAD, and DraftSight-based engineering calculator to standardize calculations for modified rigs, integrating engineering data with production materials.</li>
             <li>Supported product-launch-style implementation of a new Upper Deck chassis system from prototype through deployment.</li>
           </ul>
+
+          <div class="exp-recognition">
+            <div class="recognition-group">
+              <span class="recognition-label">Fortune</span>
+              <span class="recognition-pill">Fortune 1000</span>
+              <span class="recognition-pill">Rank #814</span>
+            </div>
+
+            <div class="recognition-group">
+              <span class="recognition-label">Newsweek</span>
+              <span class="recognition-pill">America’s Most Responsible Companies 2024</span>
+              <span class="recognition-pill">#221 Overall</span>
+              <span class="recognition-pill">#5 Automotive &amp; Components</span>
+            </div>
+          </div>
+
           <div class="exp-tech">
-            <span class="tech-pill">Python</span><span class="tech-pill">Excel</span><span class="tech-pill">AutoCAD</span><span class="tech-pill">DraftSight</span><span class="tech-pill">LEAN Engineering</span><span class="tech-pill">R&D</span><span class="tech-pill">Manufacturing</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Excel</span>
+            <span class="tech-pill">AutoCAD</span>
+            <span class="tech-pill">DraftSight</span>
+            <span class="tech-pill">LEAN Engineering</span>
+            <span class="tech-pill">R&amp;D</span>
+            <span class="tech-pill">Manufacturing</span>
           </div>
         </div>
       </div>
 
       <!-- 1st Source Bank -->
-      <div class="exp-item fade-in">
+      <div class="exp-item fade-in" style="--company-accent: #f5c542;">
         <div class="exp-dot"></div>
+
         <div class="exp-header">
-          <div>
-            <div class="exp-role">Information Technology Intern</div>
-            <div class="exp-company">1st Source Bank</div>
+          <div class="company-header">
+            <img src="assets/logos/1st-source-bank-logo.png" alt="1st Source Bank logo" class="company-logo">
+            <div>
+              <div class="exp-role">Information Technology Intern</div>
+              <div class="exp-company">1st Source Bank</div>
+            </div>
           </div>
           <div class="exp-date">IT Internship</div>
         </div>
+
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Built Power BI dashboards and worked with SQL-based core queries to surface actionable insights across customer account data.</li>
@@ -1539,14 +1742,36 @@
             <li>Gained hands-on exposure to IBM Cognos and Hyperion EPM during enterprise system transitions and supported application rewrites.</li>
             <li>Communicated data insights to both technical and non-technical stakeholders, bridging the gap between analytics and business decisions.</li>
           </ul>
+
+          <div class="exp-recognition">
+            <div class="recognition-group">
+              <span class="recognition-label">Forbes</span>
+              <span class="recognition-pill">America’s Best Banks 2026</span>
+              <span class="recognition-pill">#11 Overall</span>
+            </div>
+
+            <div class="recognition-group">
+              <span class="recognition-label">Forbes</span>
+              <span class="recognition-pill">Best-In-State Banks 2022–2025</span>
+              <span class="recognition-pill">#2 in Indiana</span>
+            </div>
+          </div>
+
           <div class="exp-tech">
-            <span class="tech-pill">Power BI</span><span class="tech-pill">SQL</span><span class="tech-pill">IBM Cognos</span><span class="tech-pill">Hyperion EPM</span><span class="tech-pill">Data Analytics</span><span class="tech-pill">Business Intelligence</span>
+            <span class="tech-pill">Power BI</span>
+            <span class="tech-pill">SQL</span>
+            <span class="tech-pill">DAX</span>
+            <span class="tech-pill">IBM Cognos</span>
+            <span class="tech-pill">Hyperion EPM</span>
+            <span class="tech-pill">Data Analytics</span>
+            <span class="tech-pill">Business Intelligence</span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</section>          
+</section> 
       
 <!-- LEADERSHIP -->
 <section id="leadership" class="section">
@@ -1836,6 +2061,38 @@
           <span class="stack-tag">Embedded Design</span>
         </div>
       </div>
+
+      <div class="project-card fade-in" data-cat="embedded">
+        <div class="project-header">
+          <div class="project-category">Cyber-Physical Systems · Embedded</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05/cyber-physical-systems-projects" target="_blank" rel="noopener noreferrer" class="project-link">↗</a>
+          </div>
+        </div>
+
+        <div class="project-title">Cyber-Physical Systems Projects</div>
+
+        <div class="project-desc">
+          Collection of embedded cyber-physical systems projects using Raspberry Pi, Python, I2C, SPI, MQTT, GPIO/PWM control, and SystemVerilog. Includes sensor driver development for pressure, temperature, and accelerometer data acquisition, MQTT-based sensor publishing, remote LED control, and FPGA-based verification of a 2-bit saturating counter.
+        </div>
+
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/cyber-physical-systems-projects" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
+
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Raspberry Pi</span>
+          <span class="stack-tag">I2C</span>
+          <span class="stack-tag">SPI</span>
+          <span class="stack-tag">MQTT</span>
+          <span class="stack-tag">GPIO / PWM</span>
+          <span class="stack-tag">SystemVerilog</span>
+          <span class="stack-tag">Basys3 FPGA</span>
+        </div>
+      </div>      
 
       <div class="project-card fade-in" data-cat="data">
         <div class="project-header">
