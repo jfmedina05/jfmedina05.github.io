@@ -1084,6 +1084,23 @@
   border-radius: 6px;
 }
 
+/* Luddy banner-specific styling */
+.luddy-logo-wrap {
+  background: #990000;
+  border: 1px solid rgba(153,0,0,0.45);
+  padding: 0;
+  overflow: hidden;
+}
+
+.luddy-logo-banner {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
 .lead-org {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
@@ -2245,7 +2262,10 @@
 
       <!-- Luddy Ambassador -->
       <div class="lead-card fade-in">
-        <div class="lead-icon">🎓</div>
+        <div class="lead-logo-wrap luddy-logo-wrap">
+          <img src="assets/logos/luddy-banner-photo.png" alt="Luddy School banner" class="lead-logo-banner luddy-logo-banner">
+        </div>
+
         <div class="lead-org">Luddy School of Informatics, Computing, and Engineering</div>
 
         <div class="lead-role">
@@ -2266,7 +2286,10 @@
 
       <!-- Mentorship -->
       <div class="lead-card fade-in">
-        <div class="lead-icon">🌱</div>
+        <div class="lead-logo-wrap luddy-logo-wrap">
+          <img src="assets/logos/luddy-peer-mentors-banner-photo.png" alt="Luddy ISE Peer Mentors banner" class="lead-logo-banner luddy-logo-banner">
+        </div>
+
         <div class="lead-org">Indiana University · ISE Program</div>
 
         <div class="lead-role">
