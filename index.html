@@ -506,99 +506,172 @@
   }
 }
 
-  /* EDUCATION */
-  #education { background: var(--bg); }
+/* EDUCATION */
+#education {
+  background: var(--bg);
+}
 
+.edu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.edu-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+
+.edu-card:hover {
+  border-color: rgba(245,166,35,0.3);
+  transform: translateX(4px);
+}
+
+.edu-school {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.edu-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.edu-degree {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.edu-degree::before {
+  content: '↳';
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.edu-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.edu-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.edu-card-title-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.edu-card-title-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.edu-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-left: 8px;
+  background: rgba(245,166,35,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(245,166,35,0.2);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.edu-badge.blue-badge {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border-color: rgba(74,158,255,0.2);
+}
+
+.coursework {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.coursework-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.course-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.course-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Mobile Education Layout */
+@media (max-width: 768px) {
   .edu-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
+    padding: 24px;
   }
-  .edu-card::after {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    border-radius: 2px 0 0 2px;
-  }
-  .edu-card:hover { border-color: rgba(245,166,35,0.3); transform: translateX(4px); }
 
-  .edu-school {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .edu-sub {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-  }
   .edu-degree {
-    font-size: 15px;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .edu-degree::before { content: '↳'; color: var(--accent); flex-shrink: 0; }
-  .edu-badge {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 100px;
-    margin-left: 8px;
-    background: rgba(245,166,35,0.1);
-    color: var(--accent);
-    border: 1px solid rgba(245,166,35,0.2);
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  .edu-badge.blue-badge {
-    background: var(--blue-dim);
-    color: var(--blue);
-    border-color: rgba(74,158,255,0.2);
+    font-size: 14px;
   }
 
-  .coursework {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
+  .edu-badge {
+    margin-left: 0;
+    margin-top: 6px;
   }
-  .coursework-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .course-tags {
+
+  .edu-degree span {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
   }
-  .course-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 3px 10px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-muted);
-  }
+}
 
 /* EXPERIENCE */
 #experience {
@@ -1789,15 +1862,58 @@
     <div class="edu-card fade-in">
       <div class="edu-school">Indiana University Bloomington</div>
       <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING</div>
+
       <div class="edu-degree">
-        B.S. in Computer Engineering <span class="edu-badge">Class of 2027</span>
+        <span>
+          <a href="https://luddy.iu.edu/academics/undergraduate/bs-computer-engineering.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="edu-link">
+            B.S. in Computer Engineering
+          </a>
+          <span class="edu-badge">Class of 2027</span>
+        </span>
       </div>
+
       <div class="edu-degree">
-        Accelerated M.S. in Intelligent Systems Engineering — Computer Engineering Specialization <span class="edu-badge">Starting Fall 2026</span>
+        <span>
+          <a href="https://luddy.iu.edu/academics/accelerated-programs.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="edu-link">
+            Accelerated M.S. in Intelligent Systems Engineering
+          </a>
+          —
+          <a href="https://luddy.iu.edu/academics/masters/ise.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="edu-link">
+            Computer Engineering Specialization
+          </a>
+          <span class="edu-badge">Starting Fall 2026</span>
+        </span>
       </div>
+
       <div class="edu-degree">
-        Minors: Mathematics &amp; Intelligent Systems Engineering <span class="edu-badge blue-badge">Dual Minor</span>
+        <span>
+          Minors:
+          <a href="https://math.indiana.edu/undergraduate/math-minor.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="edu-link">
+            Mathematics
+          </a>
+          &amp;
+          <a href="https://luddy.iu.edu/academics/undergraduate/minors-certificates.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="edu-link">
+            Intelligent Systems Engineering
+          </a>
+          <span class="edu-badge blue-badge">Dual Minor</span>
+        </span>
       </div>
+
       <div class="coursework">
         <div class="coursework-label">Relevant Coursework</div>
         <div class="course-tags">
@@ -1814,13 +1930,20 @@
           <span class="course-tag">Systems, Signals, and Control</span>
           <span class="course-tag">Modeling and Simulation</span>
           <span class="course-tag">Microelectronics Radiation Effects &amp; Reliability</span>
-          <span class="course-tag">Probability &amp; Statistics</span>      
+          <span class="course-tag">Probability &amp; Statistics</span>
         </div>
       </div>
     </div>
 
     <div class="edu-card fade-in" style="--accent: #f5a623;">
-      <div class="edu-school">Jackson Intelligent Systems Scholarship</div>
+      <div class="edu-school">
+        <a href="https://luddy.iu.edu/cost-financial-aid/scholarships-ugrad.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-card-title-link">
+          Jackson Intelligent Systems Scholarship
+        </a>
+      </div>
       <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING · AUGUST 2024</div>
       <div class="edu-degree">
         Competitive scholarship supporting outstanding undergraduate students pursuing Intelligent Systems Engineering at Luddy.
@@ -1831,7 +1954,14 @@
     </div>
 
     <div class="edu-card fade-in" style="--accent: #4a9eff;">
-      <div class="edu-school" style="color: var(--text);">GROUPS Scholars Program</div>
+      <div class="edu-school" style="color: var(--text);">
+        <a href="https://studentlife.indiana.edu/involvement-belonging/groups-scholars/index.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-card-title-link">
+          GROUPS Scholars Program
+        </a>
+      </div>
       <div class="edu-sub">INDIANA UNIVERSITY OFFICE OF STUDENT LIFE · JUNE 2023</div>
       <div class="edu-degree">
         Selective scholarship and support program at Indiana University empowering first-generation, underrepresented, and high-achieving students through academic, financial, and professional development resources.
