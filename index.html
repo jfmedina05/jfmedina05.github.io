@@ -790,6 +790,17 @@
   border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
   color: var(--company-accent);
   background: color-mix(in srgb, var(--company-accent) 10%, transparent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.recognition-pill:hover {
+  background: var(--company-accent);
+  color: var(--bg);
+  border-color: var(--company-accent);
+  transform: translateY(-1px);
 }
 
 /* Technology Pills */
@@ -1874,18 +1885,43 @@
           <div class="exp-recognition">
             <div class="recognition-group">
               <span class="recognition-label">Fortune</span>
-              <span class="recognition-pill">Fortune 1000</span>
-              <span class="recognition-pill">Rank #814</span>
+              <a href="https://fortune.com/company/lci-industries/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                Fortune 1000
+              </a>
+              <a href="https://fortune.com/company/lci-industries/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                Rank #814
+              </a>
             </div>
 
             <div class="recognition-group">
               <span class="recognition-label">Newsweek</span>
-              <span class="recognition-pill">America’s Most Responsible Companies 2024</span>
-              <span class="recognition-pill">#221 Overall</span>
-              <span class="recognition-pill">#5 Automotive &amp; Components</span>
+              <a href="https://corporate.lippert.com/news/press-releases/lippert-named-among-americas-most-responsible-companies-2024-by-newsweek"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                America’s Most Responsible Companies 2024
+              </a>
+              <a href="https://corporate.lippert.com/news/press-releases/lippert-named-among-americas-most-responsible-companies-2024-by-newsweek"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                #221 Overall
+              </a>
+              <a href="https://corporate.lippert.com/news/press-releases/lippert-named-among-americas-most-responsible-companies-2024-by-newsweek"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                #5 Automotive &amp; Components
+              </a>
             </div>
           </div>
-
+          
           <div class="exp-tech">
             <span class="tech-pill">Python</span>
             <span class="tech-pill">Excel</span>
@@ -1930,14 +1966,34 @@
           <div class="exp-recognition">
             <div class="recognition-group">
               <span class="recognition-label">Forbes</span>
-              <span class="recognition-pill">America’s Best Banks 2026</span>
-              <span class="recognition-pill">#11 Overall</span>
+              <a href="https://buildingindiana.com/stories/1st-source-bank-named-to-americas-best-banks-list-by-forbes-for-third-year-ranked-11-in-top-100,77440"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                America’s Best Banks 2026
+              </a>
+              <a href="https://buildingindiana.com/stories/1st-source-bank-named-to-americas-best-banks-list-by-forbes-for-third-year-ranked-11-in-top-100,77440"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                #11 Overall
+              </a>
             </div>
 
             <div class="recognition-group">
               <span class="recognition-label">Forbes</span>
-              <span class="recognition-pill">Best-In-State Banks 2022–2025</span>
-              <span class="recognition-pill">#2 in Indiana</span>
+              <a href="https://www.forbes.com/lists/best-in-state-banks/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                Best-In-State Banks 2022–2025
+              </a>
+              <a href="https://www.forbes.com/lists/best-in-state-banks/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="recognition-pill">
+                #2 in Indiana
+              </a>
             </div>
           </div>
 
