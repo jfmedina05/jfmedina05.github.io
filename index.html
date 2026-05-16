@@ -661,6 +661,13 @@
   gap: 14px;
 }
 
+.company-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .company-logo {
   width: 54px;
   height: 54px;
@@ -669,6 +676,13 @@
   border: 1px solid var(--border);
   padding: 8px;
   object-fit: contain;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.company-logo-link:hover .company-logo {
+  border-color: color-mix(in srgb, var(--company-accent) 45%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--company-accent) 25%, transparent);
+  transform: translateY(-1px);
 }
 
 .exp-role {
@@ -683,6 +697,18 @@
   font-size: 12px;
   color: var(--company-accent);
   margin-bottom: 4px;
+}
+
+.exp-company-link {
+  color: var(--company-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.exp-company-link:hover {
+  color: var(--company-accent);
+  border-bottom-color: var(--company-accent);
 }
 
 .exp-date {
@@ -728,6 +754,88 @@
   color: var(--company-accent);
   font-size: 10px;
   top: 4px;
+}
+
+/* Company Recognition Badges */
+.exp-recognition {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.recognition-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.recognition-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.recognition-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
+  color: var(--company-accent);
+  background: color-mix(in srgb, var(--company-accent) 10%, transparent);
+}
+
+/* Technology Pills */
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.tech-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+
+/* Mobile Experience Layout */
+@media (max-width: 768px) {
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .company-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .exp-date {
+    margin-top: 0;
+  }
+
+  .recognition-group {
+    align-items: flex-start;
+  }
+
+  .recognition-label {
+    width: 100%;
+    margin-bottom: 2px;
+  }
 }
 
 /* Company Recognition Badges */
@@ -1741,15 +1849,20 @@
 
         <div class="exp-header">
           <div class="company-header">
-            <img src="assets/logos/lippert-logo.jfif" alt="Lippert logo" class="company-logo">
+            <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/lippert-logo.jfif" alt="Lippert logo" class="company-logo">
+            </a>
             <div>
               <div class="exp-role">LEAN / Manufacturing Engineering Intern</div>
-              <div class="exp-company">Lippert</div>
+              <div class="exp-company">
+                <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer" class="exp-company-link">
+                  Lippert
+                </a>
+              </div>
             </div>
           </div>
-          <div class="exp-date">Summer Internship</div>
+          <div class="exp-date">Summer 2024 Internship</div>
         </div>
-
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Contributed to R&amp;D and LEAN engineering for the UD Chassis Project — a first-of-its-kind chassis system for the RV industry — through design, fabrication, installation, and testing.</li>
@@ -1791,13 +1904,19 @@
 
         <div class="exp-header">
           <div class="company-header">
-            <img src="assets/logos/1st-source-bank-logo.png" alt="1st Source Bank logo" class="company-logo">
+            <a href="https://www.1stsource.com/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/1st-source-bank-logo.png" alt="1st Source Bank logo" class="company-logo">
+            </a>
             <div>
               <div class="exp-role">Information Technology Intern</div>
-              <div class="exp-company">1st Source Bank</div>
+              <div class="exp-company">
+                <a href="https://www.1stsource.com/" target="_blank" rel="noopener noreferrer" class="exp-company-link">
+                  1st Source Bank
+                </a>
+              </div>
             </div>
           </div>
-          <div class="exp-date">IT Internship</div>
+          <div class="exp-date">Summer 2025 Internship</div>
         </div>
 
         <div class="exp-card">
