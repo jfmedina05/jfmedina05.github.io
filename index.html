@@ -569,6 +569,7 @@
   flex-shrink: 0;
 }
 
+/* Main degree/minor links */
 .edu-link {
   color: var(--text-dim);
   text-decoration: none;
@@ -581,14 +582,28 @@
   border-bottom-color: var(--accent);
 }
 
+/* Main education card title links */
 .edu-card-title-link {
   color: var(--text);
   text-decoration: none;
-  transition: color 0.2s, border-color 0.2s;
   border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .edu-card-title-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Subtitle links like Luddy and Office of Student Life */
+.edu-sub-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.edu-sub-link:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
@@ -1901,8 +1916,23 @@
     <h2 class="section-title">Academic Foundation</h2>
 
     <div class="edu-card fade-in">
-      <div class="edu-school">Indiana University Bloomington</div>
-      <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING</div>
+      <div class="edu-school">
+        <a href="https://bloomington.iu.edu/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-card-title-link">
+          Indiana University Bloomington
+        </a>
+      </div>
+
+      <div class="edu-sub">
+        <a href="https://luddy.iu.edu/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-sub-link">
+          LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING
+        </a>
+      </div>
 
       <div class="edu-degree">
         <span>
@@ -1985,7 +2015,17 @@
           Jackson Intelligent Systems Scholarship
         </a>
       </div>
-      <div class="edu-sub">LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING · AUGUST 2024</div>
+
+      <div class="edu-sub">
+        <a href="https://luddy.iu.edu/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-sub-link">
+          LUDDY SCHOOL OF INFORMATICS, COMPUTING, AND ENGINEERING
+        </a>
+        · AUGUST 2024
+      </div>
+
       <div class="edu-degree">
         Competitive scholarship supporting outstanding undergraduate students pursuing Intelligent Systems Engineering at Luddy.
       </div>
@@ -2003,7 +2043,17 @@
           GROUPS Scholars Program
         </a>
       </div>
-      <div class="edu-sub">INDIANA UNIVERSITY OFFICE OF STUDENT LIFE · JUNE 2023</div>
+
+      <div class="edu-sub">
+        <a href="https://studentlife.indiana.edu/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="edu-sub-link">
+          INDIANA UNIVERSITY OFFICE OF STUDENT LIFE
+        </a>
+        · JUNE 2023
+      </div>
+
       <div class="edu-degree">
         Selective scholarship and support program at Indiana University empowering first-generation, underrepresented, and high-achieving students through academic, financial, and professional development resources.
       </div>
