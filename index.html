@@ -1093,6 +1093,18 @@
   margin-bottom: 6px;
 }
 
+.lead-org-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.lead-org-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
 .lead-role {
   font-family: 'Syne', sans-serif;
   font-size: 17px;
@@ -1100,6 +1112,18 @@
   color: var(--text);
   margin-bottom: 12px;
   line-height: 1.3;
+}
+
+.lead-role-link {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.lead-role-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .lead-text {
@@ -2155,7 +2179,22 @@
           <img src="assets/logos/shpe-iub-banner.jpg" alt="SHPE Indiana University Bloomington logo" class="lead-logo-banner">
         </div>
 
-        <div class="lead-org">SHPE · Indiana University Bloomington</div>
+        <div class="lead-org">
+          <a href="https://shpe.org/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="lead-org-link">
+            SHPE
+          </a>
+          ·
+          <a href="https://www.instagram.com/shpeiub/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="lead-org-link">
+            Indiana University Bloomington
+          </a>
+        </div>
+
         <div class="lead-role">Founder & President</div>
         <div class="lead-text">
           Founded and led SHPE IUB beginning in 2024 — building a community focused on mentorship, professional development, and belonging for underrepresented students in STEM. Organized events including Minorities in STEM Night, Latin Mixer, Luddy Friendsgiving, and cross-campus collaborations. SHPE IUB won the Collaboration Powerhouse Award at the IUSG Bloom Together Gala, April 2026.
@@ -2182,7 +2221,15 @@
           <img src="assets/logos/tek-beta-banner.png" alt="Tau Epsilon Kappa Beta Chapter logo" class="lead-logo-banner tek-logo-banner">
         </div>
 
-        <div class="lead-org">Tau Epsilon Kappa · Beta Chapter</div>
+        <div class="lead-org">
+          <a href="https://www.linkedin.com/company/tau-epsilon-kappa-beta-chapter/?viewAsMember=true"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="lead-org-link">
+            Tau Epsilon Kappa · Beta Chapter
+          </a>
+        </div>
+
         <div class="lead-role">VP of Technical Development · Founding Class</div>
         <div class="lead-text">
           Founding class member of TEK Beta Chapter at Indiana University. Leads technical development initiatives for members and pledges, including a Website Development Competition judged on design, functionality, GitHub usage, and resume-building value. Promotes hands-on technical growth, project-based learning, and peer mentorship.
@@ -2193,7 +2240,16 @@
       <div class="lead-card fade-in">
         <div class="lead-icon">🎓</div>
         <div class="lead-org">Luddy School of Informatics, Computing, and Engineering</div>
-        <div class="lead-role">Student Ambassador</div>
+
+        <div class="lead-role">
+          <a href="https://luddy.iu.edu/admissions/undergraduate/ambassadors.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="lead-role-link">
+            Student Ambassador
+          </a>
+        </div>
+
         <div class="lead-text">
           Represents the Luddy School through outreach, student engagement, and professional communication. Supports prospective students, current students, and community-building initiatives on behalf of the school.
         </div>
@@ -2203,7 +2259,16 @@
       <div class="lead-card fade-in">
         <div class="lead-icon">🌱</div>
         <div class="lead-org">Indiana University · ISE Program</div>
-        <div class="lead-role">Freshman ISE Mentor</div>
+
+        <div class="lead-role">
+          <a href="https://www.instagram.com/p/DNqXbaqR3U7/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+             target="_blank"
+             rel="noopener noreferrer"
+             class="lead-role-link">
+            Freshman ISE Mentor
+          </a>
+        </div>
+
         <div class="lead-text">
           Mentors incoming Intelligent Systems Engineering students as they navigate their first year at the Luddy School — offering academic guidance, project support, and community connection within the ISE program.
         </div>
