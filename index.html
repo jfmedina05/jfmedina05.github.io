@@ -179,160 +179,251 @@
     transition: all 0.3s;
   }
 
-  /* HERO */
+/* HERO */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 74px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  opacity: 0.5;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '▸';
+  font-size: 10px;
+}
+
+.hero-name {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(52px, 8vw, 92px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.2s forwards;
+}
+
+.hero-name .jj {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-headline {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.3s forwards;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.4s forwards;
+}
+
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-dim);
+  background: var(--surface);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.5s forwards;
+}
+
+.btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-dim);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+  border-color: var(--text-dim);
+}
+
+/* HERO MARQUEE */
+.hero-marquee {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(11,14,20,0.82);
+  backdrop-filter: blur(14px);
+}
+
+.hero-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 34s linear infinite;
+}
+
+.hero-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-right: 32px;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.marquee-item strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.marquee-separator {
+  color: var(--blue);
+  opacity: 0.65;
+}
+
+.hero-marquee:hover .hero-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
   #hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 60px;
-    position: relative;
-    overflow: hidden;
+    padding-bottom: 68px;
   }
 
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
-    opacity: 0.5;
+  .hero-marquee {
+    height: 50px;
   }
 
-  .hero-glow {
-    position: absolute;
-    top: 20%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-  }
-
-  .hero-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.1s forwards;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .hero-eyebrow::before {
-    content: '▸';
+  .marquee-item {
     font-size: 10px;
   }
 
-  .hero-name {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(52px, 8vw, 92px);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.2s forwards;
+  .hero-marquee-group {
+    gap: 24px;
+    padding-right: 24px;
   }
-  .hero-name .jj {
-    color: var(--accent);
-    font-style: italic;
-  }
-
-  .hero-headline {
-    font-size: 17px;
-    color: var(--text-dim);
-    max-width: 600px;
-    line-height: 1.6;
-    margin-bottom: 36px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.3s forwards;
-  }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.4s forwards;
-  }
-
-  .tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 5px 12px;
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    color: var(--text-dim);
-    background: var(--surface);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.6s 0.5s forwards;
-  }
-
-  .btn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    padding: 12px 24px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-  }
-  .btn-primary:hover {
-    background: var(--accent2);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(245,166,35,0.3);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-  .btn-outline:hover {
-    border-color: var(--text-dim);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost:hover {
-    color: var(--text);
-    border-color: var(--text-dim);
-  }
+}
 
   /* ABOUT */
   #about { background: var(--bg2); }
@@ -1750,13 +1841,17 @@
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-eyebrow">Computer Engineering · Indiana University Bloomington</div>
+
       <h1 class="hero-name">Jaiden<br>Medina</h1>
+
       <p class="hero-headline">
         Building human-centered engineering solutions at the intersection of embedded systems, edge AI, data engineering, and hardware reliability — with a focus on healthcare technology, intelligent systems, and real-world impact.
       </p>
+
       <div class="hero-tags">
         <span class="tag">Embedded Systems</span>
         <span class="tag">Edge AI / ML</span>
@@ -1767,28 +1862,83 @@
         <span class="tag">Manufacturing Optimization</span>
         <span class="tag">Engineering Leadership</span>
       </div>
+
       <div class="hero-cta">
         <a href="Jaiden-Medina-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
           Resume
         </a>
-        <a href="https://github.com/jfmedina05" target="_blank" class="btn btn-outline">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+
+        <a href="https://github.com/jfmedina05" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/jaiden-medina" target="_blank" class="btn btn-outline">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+
+        <a href="https://www.linkedin.com/in/jaiden-medina" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
           LinkedIn
         </a>
-        <a href="https://www.usatoday.com/story/sponsor-story/indiana-university/2026/03/19/indiana-university-trains-engineers-to-design-for-human-impact/89217306007/"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="btn btn-ghost">
-  Featured in USA Today
-</a>
 
-<a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        <a href="https://www.usatoday.com/story/sponsor-story/indiana-university/2026/03/19/indiana-university-trains-engineers-to-design-for-human-impact/89217306007/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-ghost">
+          Featured in USA Today
+        </a>
+
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
       </div>
+    </div>
+  </div>
+
+  <div class="hero-marquee" aria-label="Leadership, organizations, and recognition highlights">
+    <div class="hero-marquee-track">
+
+      <div class="hero-marquee-group">
+        <span class="marquee-item">Founder & President at <strong>SHPE IUB</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item">VP of Technical Development at <strong>TEK Beta Chapter</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Luddy Student Ambassador</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Freshman ISE Mentor</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Jackson Intelligent Systems Scholar</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>GROUPS Scholar</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Luddy Certificate of Academic Excellence</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item">Collaboration Powerhouse Award · <strong>SHPE IUB</strong></span>
+      </div>
+
+      <div class="hero-marquee-group" aria-hidden="true">
+        <span class="marquee-item">Founder & President at <strong>SHPE IUB</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item">VP of Technical Development at <strong>TEK Beta Chapter</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Luddy Student Ambassador</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Freshman ISE Mentor</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Jackson Intelligent Systems Scholar</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>GROUPS Scholar</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item"><strong>Luddy Certificate of Academic Excellence</strong></span>
+        <span class="marquee-separator">◇</span>
+        <span class="marquee-item">Collaboration Powerhouse Award · <strong>SHPE IUB</strong></span>
+      </div>
+
     </div>
   </div>
 </section>
