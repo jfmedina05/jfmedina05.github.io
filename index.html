@@ -99,6 +99,64 @@
     margin-bottom: 48px;
   }
 
+  /* SUBTLE SECTION BACKGROUNDS */
+#about,
+#education,
+#experience,
+#leadership,
+#projects,
+#skills,
+#awards {
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before,
+#education::before,
+#experience::before,
+#leadership::before,
+#projects::before,
+#skills::before,
+#awards::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+/* About / Education / Leadership / Skills */
+#about::before,
+#education::before,
+#leadership::before,
+#skills::before {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(74,158,255,0.05), transparent 32%),
+    radial-gradient(circle at 10% 80%, rgba(245,166,35,0.045), transparent 34%);
+}
+
+/* Experience / Projects / Recognition */
+#experience::before,
+#projects::before,
+#awards::before {
+  background:
+    radial-gradient(circle at 10% 25%, rgba(245,166,35,0.06), transparent 30%),
+    radial-gradient(circle at 90% 70%, rgba(74,158,255,0.045), transparent 35%);
+}
+
+/* Keep section content above background effects */
+#about .container,
+#education .container,
+#experience .container,
+#leadership .container,
+#projects .container,
+#skills .container,
+#awards .container {
+  position: relative;
+  z-index: 1;
+}
+
   /* NOISE OVERLAY */
   body::before {
     content: '';
