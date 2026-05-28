@@ -282,17 +282,17 @@
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
   opacity: 0.55;
+  animation: gridDrift 18s linear infinite;
 }
 
-.hero-glow {
-  position: absolute;
-  top: 20%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  z-index: 0;
-  background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
-  pointer-events: none;
+@keyframes gridDrift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 60px 60px;
+  }
 }
 
 .hero-content {
@@ -3475,24 +3475,6 @@
   document.querySelectorAll('.lead-card').forEach((card, i) => {
     card.style.transitionDelay = i * 0.1 + 's';
   });
-
-  // Interactive cursor glow on hero background
-  const hero = document.getElementById('hero');
-
-  if (hero) {
-    hero.addEventListener('mousemove', (event) => {
-      const rect = hero.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      hero.style.setProperty('--mouse-x', `${x}px`);
-      hero.style.setProperty('--mouse-y', `${y}px`);
-    });
-
-    hero.addEventListener('mouseleave', () => {
-      hero.style.setProperty('--mouse-x', '50%');
-      hero.style.setProperty('--mouse-y', '50%');
-    });
   }
 </script>
 </body>
