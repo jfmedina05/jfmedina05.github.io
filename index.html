@@ -246,17 +246,42 @@
   padding-bottom: 74px;
   position: relative;
   overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* Interactive hero cursor glow */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      420px circle at var(--mouse-x) var(--mouse-y),
+      rgba(245, 166, 35, 0.14),
+      rgba(74, 158, 255, 0.07) 28%,
+      transparent 58%
+    );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#hero:hover::after {
+  opacity: 1;
 }
 
 .hero-grid {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
-  opacity: 0.5;
+  opacity: 0.55;
 }
 
 .hero-glow {
@@ -265,13 +290,14 @@
   left: -10%;
   width: 600px;
   height: 600px;
+  z-index: 0;
   background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
 }
 
@@ -337,12 +363,13 @@
   border-radius: 100px;
   color: var(--text-dim);
   background: var(--surface);
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .tag:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--accent-glow);
 }
 
 .hero-cta {
@@ -3444,9 +3471,29 @@
   document.querySelectorAll('.project-card').forEach((card, i) => {
     card.style.transitionDelay = (i % 3) * 0.08 + 's';
   });
+
   document.querySelectorAll('.lead-card').forEach((card, i) => {
     card.style.transitionDelay = i * 0.1 + 's';
   });
+
+  // Interactive cursor glow on hero background
+  const hero = document.getElementById('hero');
+
+  if (hero) {
+    hero.addEventListener('mousemove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      hero.style.setProperty('--mouse-x', `${x}px`);
+      hero.style.setProperty('--mouse-y', `${y}px`);
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      hero.style.setProperty('--mouse-x', '50%');
+      hero.style.setProperty('--mouse-y', '50%');
+    });
+  }
 </script>
 </body>
 </html>
