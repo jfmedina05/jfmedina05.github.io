@@ -986,6 +986,27 @@
   border-color: color-mix(in srgb, var(--company-accent) 35%, transparent);
 }
 
+.incoming-card {
+  border-color: color-mix(in srgb, var(--company-accent) 45%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--company-accent) 12%, transparent), transparent 45%),
+    var(--surface);
+}
+
+.incoming-card::before {
+  content: 'RETURNING INTERNSHIP';
+  display: inline-flex;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--company-accent);
+  background: color-mix(in srgb, var(--company-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
+  border-radius: 100px;
+  padding: 5px 10px;
+  margin-bottom: 16px;
+}
+
 .exp-bullets {
   list-style: none;
   display: flex;
@@ -1082,88 +1103,6 @@
   .exp-header {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .company-logo {
-    width: 48px;
-    height: 48px;
-  }
-
-  .exp-date {
-    margin-top: 0;
-  }
-
-  .recognition-group {
-    align-items: flex-start;
-  }
-
-  .recognition-label {
-    width: 100%;
-    margin-bottom: 2px;
-  }
-}
-
-/* Company Recognition Badges */
-.exp-recognition {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.recognition-group {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.recognition-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-right: 4px;
-}
-
-.recognition-pill {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  padding: 5px 10px;
-  border-radius: 100px;
-  border: 1px solid color-mix(in srgb, var(--company-accent) 35%, transparent);
-  color: var(--company-accent);
-  background: color-mix(in srgb, var(--company-accent) 10%, transparent);
-}
-
-/* Technology Pills */
-.exp-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.tech-pill {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  padding: 3px 10px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  color: var(--text-muted);
-}
-
-/* Mobile Experience Layout */
-@media (max-width: 768px) {
-  .exp-header {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 12px;
   }
 
@@ -1179,6 +1118,10 @@
   .exp-date {
     margin-top: 4px;
     align-self: flex-start;
+  }
+
+  .exp-card {
+    padding: 22px;
   }
 
   .recognition-group {
@@ -2418,13 +2361,51 @@
 
     <div class="exp-timeline">
 
-      <!-- Lippert -->
+      <!-- Lippert 2026 -->
       <div class="exp-item fade-in" style="--company-accent: #ff8a00;">
         <div class="exp-dot"></div>
 
         <div class="exp-header">
           <div class="company-header">
-            <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+              <img src="assets/logos/lippert-logo.jfif" alt="Lippert logo" class="company-logo">
+            </a>
+            <div>
+              <div class="exp-role">Incoming Summer 2026 Intern</div>
+              <div class="exp-company">
+                <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer" class="exp-company-link">
+                  Lippert
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="exp-date">Incoming Summer 2026 Internship</div>
+        </div>
+
+        <div class="exp-card incoming-card">
+          <ul class="exp-bullets">
+            <li>Returning to Lippert for a second summer internship in 2026, building on prior experience in manufacturing engineering, process improvement, technical problem-solving, and cross-functional collaboration.</li>
+            <li>Expected to contribute to a new role focused on applying engineering, data, and systems-level thinking to support operational and technical initiatives.</li>
+            <li>Continuing professional growth within an organization recognized for manufacturing innovation, responsibility, and large-scale product development.</li>
+          </ul>
+
+          <div class="exp-tech">
+            <span class="tech-pill">Returning Intern</span>
+            <span class="tech-pill">Engineering</span>
+            <span class="tech-pill">Manufacturing</span>
+            <span class="tech-pill">Process Improvement</span>
+            <span class="tech-pill">Systems Thinking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lippert 2024 -->
+      <div class="exp-item fade-in" style="--company-accent: #ff8a00;">
+        <div class="exp-dot"></div>
+
+        <div class="exp-header">
+          <div class="company-header">
+            <a href="https://www.lippert.com/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
               <img src="assets/logos/lippert-logo.jfif" alt="Lippert logo" class="company-logo">
             </a>
             <div>
@@ -2438,6 +2419,7 @@
           </div>
           <div class="exp-date">Summer 2024 Internship</div>
         </div>
+
         <div class="exp-card">
           <ul class="exp-bullets">
             <li>Contributed to R&amp;D and LEAN engineering for the UD Chassis Project — a first-of-its-kind chassis system for the RV industry — through design, fabrication, installation, and testing.</li>
@@ -2485,7 +2467,7 @@
               </a>
             </div>
           </div>
-          
+
           <div class="exp-tech">
             <span class="tech-pill">Python</span>
             <span class="tech-pill">Excel</span>
@@ -2504,7 +2486,7 @@
 
         <div class="exp-header">
           <div class="company-header">
-            <a href="https://www.1stsource.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.1stsource.com/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
               <img src="assets/logos/1st-source-bank-logo.png" alt="1st Source Bank logo" class="company-logo">
             </a>
             <div>
@@ -2575,7 +2557,7 @@
 
     </div>
   </div>
-</section> 
+</section>
       
 <!-- LEADERSHIP -->
 <section id="leadership" class="section">
