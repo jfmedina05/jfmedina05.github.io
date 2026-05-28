@@ -974,21 +974,26 @@
 }
 
 .exp-card {
-  background: var(--surface);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--company-accent) 10%, transparent), transparent 38%),
+    linear-gradient(135deg, color-mix(in srgb, var(--company-accent) 6%, transparent), transparent 48%),
+    var(--surface);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-lg);
   padding: 24px;
   margin-top: 12px;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .exp-item:hover .exp-card {
   border-color: color-mix(in srgb, var(--company-accent) 35%, transparent);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--company-accent) 10%, transparent);
 }
 
 .incoming-card {
   border-color: color-mix(in srgb, var(--company-accent) 45%, transparent);
   background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--company-accent) 16%, transparent), transparent 36%),
     linear-gradient(135deg, color-mix(in srgb, var(--company-accent) 12%, transparent), transparent 45%),
     var(--surface);
 }
