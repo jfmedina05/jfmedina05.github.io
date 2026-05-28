@@ -282,19 +282,40 @@
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
   opacity: 0.55;
-  animation: gridDrift 18s linear infinite;
 }
 
-@keyframes gridDrift {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 60px 60px;
-  }
+/* Subtle cursor-reactive grid morph */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(245,166,35,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,158,255,0.10) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: var(--grid-shift-x, 0px) var(--grid-shift-y, 0px);
+  mask-image: radial-gradient(
+    180px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    black 0%,
+    rgba(0,0,0,0.7) 35%,
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
+#hero.grid-active::after {
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero::after {
+    display: none;
+  }
+}
+  
 .hero-content {
   position: relative;
   z-index: 2;
@@ -3475,6 +3496,33 @@
   document.querySelectorAll('.lead-card').forEach((card, i) => {
     card.style.transitionDelay = i * 0.1 + 's';
   });
+
+  // Subtle cursor-reactive grid morph on hero background
+  const hero = document.getElementById('hero');
+
+  if (hero) {
+    hero.addEventListener('mousemove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const shiftX = (x - rect.width / 2) * 0.018;
+      const shiftY = (y - rect.height / 2) * 0.018;
+
+      hero.style.setProperty('--mouse-x', `${x}px`);
+      hero.style.setProperty('--mouse-y', `${y}px`);
+      hero.style.setProperty('--grid-shift-x', `${shiftX}px`);
+      hero.style.setProperty('--grid-shift-y', `${shiftY}px`);
+      hero.classList.add('grid-active');
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      hero.classList.remove('grid-active');
+      hero.style.setProperty('--mouse-x', '50%');
+      hero.style.setProperty('--mouse-y', '50%');
+      hero.style.setProperty('--grid-shift-x', '0px');
+      hero.style.setProperty('--grid-shift-y', '0px');
+    });
   }
 </script>
 </body>
