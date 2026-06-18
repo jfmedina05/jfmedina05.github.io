@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0B0E14"/>
+
+  <defs>
+    <linearGradient id="cardGradient" x1="120" y1="90" x2="1080" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A2035"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#1E2640"/>
+    </linearGradient>
+
+    <radialGradient id="amberGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 160) rotate(45) scale(420 320)">
+      <stop stop-color="#F5A623" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#F5A623" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 500) rotate(45) scale(420 320)">
+      <stop stop-color="#4A9EFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#4A9EFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.7"/>
+  <rect width="1200" height="630" fill="url(#amberGlow)"/>
+  <rect width="1200" height="630" fill="url(#blueGlow)"/>
+
+  <rect x="80" y="70" width="1040" height="490" rx="28" fill="url(#cardGradient)" stroke="rgba(245,166,35,0.45)" stroke-width="2"/>
+
+  <text x="120" y="132"
+        font-family="IBM Plex Mono, Consolas, monospace"
+        font-size="22"
+        letter-spacing="5"
+        fill="#F5A623">
+    COMPUTER ENGINEERING · INDIANA UNIVERSITY
+  </text>
+
+  <text x="120" y="258"
+        font-family="Syne, Arial, Helvetica, sans-serif"
+        font-size="92"
+        font-weight="800"
+        fill="#E8EAF0">
+    Jaiden Medina
+  </text>
+
+  <text x="120" y="326"
+        font-family="Georgia, serif"
+        font-size="34"
+        fill="#AAB4C5">
+    Embedded Systems · Edge AI · Data Engineering
+  </text>
+
+  <text x="120" y="374"
+        font-family="Georgia, serif"
+        font-size="34"
+        fill="#AAB4C5">
+    Healthcare Technology · Human-Centered Engineering
+  </text>
+
+  <rect x="120" y="430" width="236" height="44" rx="22" fill="rgba(245,166,35,0.12)" stroke="rgba(245,166,35,0.45)"/>
+  <text x="142" y="459" font-family="IBM Plex Mono, Consolas, monospace" font-size="18" fill="#F5A623">
+    Medical Devices
+  </text>
+
+  <rect x="376" y="430" width="214" height="44" rx="22" fill="rgba(74,158,255,0.12)" stroke="rgba(74,158,255,0.4)"/>
+  <text x="398" y="459" font-family="IBM Plex Mono, Consolas, monospace" font-size="18" fill="#4A9EFF">
+    Embedded AI
+  </text>
+
+  <rect x="610" y="430" width="218" height="44" rx="22" fill="rgba(245,166,35,0.12)" stroke="rgba(245,166,35,0.45)"/>
+  <text x="632" y="459" font-family="IBM Plex Mono, Consolas, monospace" font-size="18" fill="#F5A623">
+    Leadership
+  </text>
+
+  <text x="120" y="520"
+        font-family="IBM Plex Mono, Consolas, monospace"
+        font-size="20"
+        fill="#8892A4">
+    jaidenmedina.com
+  </text>
+
+  <circle cx="1015" cy="140" r="58" fill="rgba(245,166,35,0.12)" stroke="rgba(245,166,35,0.45)" stroke-width="2"/>
+  <text x="1015" y="158"
+        text-anchor="middle"
+        font-family="Syne, Arial, Helvetica, sans-serif"
+        font-size="46"
+        font-weight="800"
+        fill="#F5A623">
+    JM
+  </text>
+</svg>
