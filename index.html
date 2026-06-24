@@ -1422,6 +1422,34 @@
   background: var(--accent-glow);
 }
 
+.filter-btn.filter-healthcare {
+color: var(--blue);
+border-color: rgba(74,158,255,0.35);
+background: rgba(74,158,255,0.08);
+}
+
+.filter-btn.filter-healthcare,
+.filter-btn.filter-healthcare.active {
+color: var(--blue);
+border-color: var(--blue);
+background: rgba(74,158,255,0.14);
+box-shadow: 0 0 22px rgba(74,158,255,0.12);
+}
+
+.filter-btn.filter-academic {
+color: #990000;
+border-color: rgba(153,0,0,0.45);
+background: rgba(153,0,0,0.10);
+}
+
+.filter-btn.filter-academic,
+.filter-btn.filter-academic.active {
+color: #ff5a5a;
+border-color: #990000;
+background: rgba(153,0,0,0.18);
+box-shadow: 0 0 22px rgba(153,0,0,0.16);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -2773,8 +2801,8 @@
     <div class="projects-filter">
       <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
       <button class="filter-btn" onclick="filterProjects('professional', this)">Professional</button>
-      <button class="filter-btn" onclick="filterProjects('healthcare', this)">Healthcare</button>
-      <button class="filter-btn" onclick="filterProjects('academic', this)">Academic / Research</button>
+      <button class="filter-btn filter-healthcare" onclick="filterProjects('healthcare', this)">Healthcare</button>
+      <button class="filter-btn filter-academic" onclick="filterProjects('academic', this)">Academic / Research</button>
       <button class="filter-btn" onclick="filterProjects('embedded', this)">Embedded</button>
       <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
       <button class="filter-btn" onclick="filterProjects('hardware', this)">Hardware</button>
