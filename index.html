@@ -2776,13 +2776,14 @@
       <button class="filter-btn" onclick="filterProjects('academic', this)">Academic / Research</button>
       <button class="filter-btn" onclick="filterProjects('embedded', this)">Embedded</button>
       <button class="filter-btn" onclick="filterProjects('ml', this)">ML / AI</button>
+      <button class="filter-btn" onclick="filterProjects('healthcare', this)">Healthcare</button>
       <button class="filter-btn" onclick="filterProjects('hardware', this)">Hardware</button>
       <button class="filter-btn" onclick="filterProjects('data', this)">Data</button>
     </div>
 
     <div class="projects-grid" id="projectsGrid">
 
-      <div class="project-card fade-in" data-cat="professional">
+      <div class="project-card fade-in" data-cats="professional data">
         <div class="project-header">
           <div class="project-category">Professional · Business Intelligence</div>
         </div>
@@ -2800,7 +2801,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="professional">
+      <div class="project-card fade-in" data-cats="professional data hardware">
         <div class="project-header">
           <div class="project-category">Professional · Manufacturing Engineering</div>
         </div>
@@ -2819,7 +2820,47 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="academic">
+      <div class="project-card fade-in" data-cats="ml data healthcare">
+        <div class="project-header">
+          <div class="project-category">Healthcare Technology · Synthetic CGM Analytics</div>
+          <div class="project-links">
+            <a href="https://github.com/jfmedina05/glucose-trend-alert-system" target="_blank" rel="noopener noreferrer" class="project-link">↗</a>
+          </div>
+        </div>
+
+        <div class="project-title">Glucose Trend Alert System</div>
+
+        <div class="project-desc">
+          Built a synthetic continuous glucose monitor analytics system that generates CGM-style glucose readings, classifies simulated glucose risk zones, detects rising, falling, stable, rapidly rising, and rapidly falling trends, calculates glucose rate of change, and generates prioritized user-centered alerts. The system includes persistence and cooldown logic to reduce noisy alert behavior, Streamlit dashboard visualization, CSV/report export, automated pytest validation, and medical-device-inspired documentation such as requirements, software design, risk management, validation planning, traceability, and regulatory disclaimers.
+        </div>
+
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/glucose-trend-alert-system" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+
+          <a href="/projects/cgm-alert-pipeline/" class="project-action-btn">
+            View Case Study
+          </a>
+        </div>
+
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Pandas</span>
+          <span class="stack-tag">NumPy</span>
+          <span class="stack-tag">Plotly</span>
+          <span class="stack-tag">Streamlit</span>
+          <span class="stack-tag">pytest</span>
+          <span class="stack-tag">GitHub Actions</span>
+          <span class="stack-tag">Synthetic Data</span>
+          <span class="stack-tag">Risk Classification</span>
+          <span class="stack-tag">Trend Detection</span>
+          <span class="stack-tag">Alert Logic</span>
+          <span class="stack-tag">Healthcare Technology</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in" data-cats="academic hardware">
         <div class="project-header">
           <div class="project-category">Academic Project · Microelectronics</div>
           <div class="project-links">
@@ -2848,7 +2889,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="academic">
+      <div class="project-card fade-in" data-cats="academic">
         <div class="project-header">
           <div class="project-category">Academic Research · Physics</div>
           <div class="project-links">
@@ -2878,7 +2919,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="academic">
+      <div class="project-card fade-in" data-cats="academic ml">
         <div class="project-header">
           <div class="project-category">Academic Project · AI Policy</div>
           <div class="project-links">
@@ -2906,7 +2947,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="embedded">
+      <div class="project-card fade-in" data-cats="embedded hardware">
         <div class="project-header">
           <div class="project-category">Robotics · Embedded</div>
           <div class="project-links">
@@ -2918,11 +2959,11 @@
           Autonomous and manual control system for a Pololu Romi robot using closed-loop control, state machines, embedded C/C++, Python tooling, I2C communication, PID line following, encoder feedback, and data logging.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/romi-autonomous-vehicle" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/romi-autonomous-vehicle" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
         
         <div class="project-stack">
           <span class="stack-tag">C/C++</span>
@@ -2934,7 +2975,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="hardware">
+      <div class="project-card fade-in" data-cats="hardware embedded">
         <div class="project-header">
           <div class="project-category">FPGA · Hardware Acceleration</div>
           <div class="project-links">
@@ -2946,11 +2987,11 @@
           FPGA hardware acceleration projects using SystemVerilog, AXI, DMA, and hardware/software co-design concepts. Focuses on digital design, acceleration, embedded systems, and performance improvements over software implementations.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/fpga-digital-design-accelerators" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/fpga-digital-design-accelerators" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
       
         <div class="project-stack">
           <span class="stack-tag">SystemVerilog</span>
@@ -2962,7 +3003,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="embedded">
+      <div class="project-card fade-in" data-cats="embedded hardware">
         <div class="project-header">
           <div class="project-category">STM32 · Embedded Systems</div>
           <div class="project-links">
@@ -2974,11 +3015,11 @@
           Embedded systems project using STM32 hardware, firmware, peripherals, system integration, and enclosure design. Includes hardware-aware design decisions such as standoffs, sensor access, moisture protection, and connector accessibility.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/stm32-embedded-systems-project" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/stm32-embedded-systems-project" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
         
         <div class="project-stack">
           <span class="stack-tag">C</span>
@@ -2990,7 +3031,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="embedded">
+      <div class="project-card fade-in" data-cats="embedded hardware data">
         <div class="project-header">
           <div class="project-category">Cyber-Physical Systems · Embedded</div>
           <div class="project-links">
@@ -3022,7 +3063,7 @@
         </div>
       </div>      
 
-      <div class="project-card fade-in" data-cat="data">
+      <div class="project-card fade-in" data-cats="data ml">
         <div class="project-header">
           <div class="project-category">Cloud · Machine Learning</div>
           <div class="project-links">
@@ -3034,11 +3075,11 @@
           Cloud-deployed machine learning microservice for predicting building energy loads using a Random Forest model and Flask API. Built around deployable inference, data analysis, and microservice architecture.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/ml-energy-load-microservice" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/ml-energy-load-microservice" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
         
         <div class="project-stack">
           <span class="stack-tag">Python</span>
@@ -3050,7 +3091,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="academic">
+      <div class="project-card fade-in" data-cats="academic hardware">
         <div class="project-header">
           <div class="project-category">Computer Systems · Academic</div>
           <div class="project-links">
@@ -3082,7 +3123,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="ml">
+      <div class="project-card fade-in" data-cats="ml embedded data">
         <div class="project-header">
           <div class="project-category">Embedded ML · Edge AI</div>
           <div class="project-links">
@@ -3094,11 +3135,11 @@
           Optimized a Raspberry Pi-based neural network for human activity recognition, improving accuracy from approximately 0.80 to 0.95 while balancing inference speed, model size, and embedded performance constraints. Deployed the model using TensorFlow Lite for edge-device inference.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/embedded-activity-recognition" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/embedded-activity-recognition" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
         
         <div class="project-stack">
           <span class="stack-tag">Python</span>
@@ -3109,7 +3150,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="ml">
+      <div class="project-card fade-in" data-cats="ml healthcare">
         <div class="project-header">
           <div class="project-category">Computer Vision · Deep Learning</div>
           <div class="project-links">
@@ -3121,11 +3162,11 @@
           CNN-based medical imaging model for bone fracture detection. Applies computer vision, image preprocessing, deep learning, and healthcare-focused machine learning to support diagnostic image classification.
         </div>
 
-       <div class="project-actions">
-         <a href="https://github.com/jfmedina05/bone-fracture-detection-cnn" target="_blank" rel="noopener noreferrer" class="project-action-btn">
-           Go to GitHub Project
-         </a>
-       </div>
+        <div class="project-actions">
+          <a href="https://github.com/jfmedina05/bone-fracture-detection-cnn" target="_blank" rel="noopener noreferrer" class="project-action-btn">
+            Go to GitHub Project
+          </a>
+        </div>
         
         <div class="project-stack">
           <span class="stack-tag">Python</span>
@@ -3136,7 +3177,6 @@
           <span class="stack-tag">Deep Learning</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -3542,8 +3582,13 @@
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
     document.querySelectorAll('.project-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
+      const categories = card.dataset.cats
+        ? card.dataset.cats.split(/\s+/)
+        : [card.dataset.cat];
+
+      if (cat === 'all' || categories.includes(cat)) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
