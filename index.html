@@ -1422,6 +1422,20 @@
   background: var(--accent-glow);
 }
 
+.filter-btn.filter-professional {
+color: var(--accent);
+border-color: rgba(245,166,35,0.35);
+background: rgba(245,166,35,0.08);
+}
+
+.filter-btn.filter-professional,
+.filter-btn.filter-professional.active {
+color: var(--accent);
+border-color: var(--accent);
+background: rgba(245,166,35,0.14);
+box-shadow: 0 0 22px rgba(245,166,35,0.12);
+}
+  
 .filter-btn.filter-healthcare {
 color: var(--blue);
 border-color: rgba(74,158,255,0.35);
@@ -2800,7 +2814,7 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
 
     <div class="projects-filter">
       <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
-      <button class="filter-btn" onclick="filterProjects('professional', this)">Professional</button>
+      <button class="filter-btn filter-professional" onclick="filterProjects('professional', this)">Professional</button>
       <button class="filter-btn filter-healthcare" onclick="filterProjects('healthcare', this)">Healthcare</button>
       <button class="filter-btn filter-academic" onclick="filterProjects('academic', this)">Academic / Research</button>
       <button class="filter-btn" onclick="filterProjects('embedded', this)">Embedded</button>
