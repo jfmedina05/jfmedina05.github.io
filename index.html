@@ -1583,6 +1583,44 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
   margin-bottom: 16px;
 }
 
+.project-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 16px;
+}
+
+.project-metric-card {
+  background: rgba(11,14,20,0.38);
+  border: 1px solid rgba(245,166,35,0.16);
+  border-radius: var(--radius-lg);
+  padding: 12px 10px;
+}
+
+.project-metric-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.project-metric-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+@media (max-width: 480px) {
+  .project-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  
 .project-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2947,7 +2985,29 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
         <div class="project-title">Upper Deck Chassis Alignment — Engineering Automation &amp; Fixture Standardization</div>
 
         <div class="project-desc">
-          Contributed to Lippert’s Upper Deck Chassis alignment and fixture standardization project across a process connected to 24 production lines. Built a Python, Excel, AutoCAD, and DraftSight-based engineering calculator that used 5–6 chassis inputs to generate standardized fixture settings in approximately 2 minutes. The improved workflow reduced measurement time by 59%, from 85 seconds to 35 seconds, saved approximately 10 minutes per chassis, helped avoid 2–3 hours of rework per alignment defect, and supported approximately $343K in projected annual savings.
+          Contributed to Lippert’s Upper Deck Chassis alignment and fixture standardization project by building a Python, Excel, AutoCAD, and DraftSight-based engineering calculator that converted 5–6 chassis inputs into standardized fixture settings in approximately 2 minutes.
+        </div>
+
+        <div class="project-metrics-grid">
+          <div class="project-metric-card">
+            <div class="project-metric-value">24</div>
+            <div class="project-metric-label">Production lines supported</div>
+          </div>
+
+          <div class="project-metric-card">
+            <div class="project-metric-value">59%</div>
+            <div class="project-metric-label">Measurement time reduction</div>
+          </div>
+
+          <div class="project-metric-card">
+            <div class="project-metric-value">10 min</div>
+            <div class="project-metric-label">Saved per chassis</div>
+          </div>
+
+          <div class="project-metric-card">
+            <div class="project-metric-value">$343K</div>
+            <div class="project-metric-label">Projected annual savings</div>
+          </div>
         </div>
 
         <div class="project-stack">
