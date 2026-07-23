@@ -1116,6 +1116,53 @@
   top: 4px;
 }
 
+/* Experience Impact Metrics */
+.exp-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.exp-impact-card {
+  background: rgba(11,14,20,0.38);
+  border: 1px solid rgba(245,166,35,0.16);
+  border-radius: var(--radius-lg);
+  padding: 14px 12px;
+}
+
+.exp-impact-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.exp-impact-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .exp-impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .exp-impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Company Recognition Badges */
 .exp-recognition {
   display: flex;
@@ -2506,7 +2553,6 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
             <li>Supported implementation of a DC Nut Runner Torque Data Collection System for chassis and pin box assemblies, integrating torque tools with manufacturing networks, controllers, and enterprise systems to improve quality traceability and process control.</li>
             <li>Collaborated with Manufacturing Engineering, Systems Engineering, IT Infrastructure, and external vendors to configure, program, test, and validate automated torque tools to engineering specifications.</li>
             <li>Developed and tested a serial-number-driven torque system that automatically loads fastening profiles based on scanned chassis and pin box serial numbers, reducing operator input and improving process consistency.</li>
-            <li>Assisted in validating torque data collection and storage workflows across industrial controllers, machine networks, Ignition, Microsoft Dynamics 365, and Power BI while gaining hands-on experience with PLC-controlled equipment, production data integration, and Industry 4.0 technologies.</li>
           </ul>
 
           <div class="exp-tech">
@@ -2515,12 +2561,12 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
             <span class="tech-pill">Ignition</span>
             <span class="tech-pill">Microsoft Dynamics 365</span>
             <span class="tech-pill">Power BI</span>
-            <span class="tech-pill">PLC-Controlled Equipment</span>
-            <span class="tech-pill">Manufacturing Networks</span>
             <span class="tech-pill">Industrial Automation</span>
             <span class="tech-pill">Traceability</span>
-            <span class="tech-pill">Industry 4.0</span>
           </div>
+        </div>
+      </div>
+
 
       <!-- 1st Source Bank -->
       <div class="exp-item fade-in" style="--company-accent: #f5c542;">
@@ -2622,9 +2668,30 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           <ul class="exp-bullets">
             <li>Contributed to R&amp;D and LEAN engineering for Lippert’s Upper Deck Chassis alignment and fixture standardization project, supporting a process connected to 24 production lines.</li>
             <li>Built a Python, Excel, AutoCAD, and DraftSight-based engineering calculator that used 5–6 chassis inputs to generate standardized fixture settings in approximately 2 minutes.</li>
-            <li>Helped reduce measurement time by 59%, improving the process from 85 seconds to 35 seconds while saving approximately 10 minutes per chassis.</li>
-            <li>Supported a projected annual savings opportunity of approximately $343K while helping avoid 2–3 hours of rework per alignment defect.</li>
+            <li>Helped reduce measurement time by 59%, saving approximately 10 minutes per chassis while supporting an estimated $343K in projected annual savings.</li>
           </ul>
+
+          <div class="exp-impact-grid">
+            <div class="exp-impact-card">
+              <div class="exp-impact-value">24</div>
+              <div class="exp-impact-label">Production lines supported</div>
+            </div>
+
+            <div class="exp-impact-card">
+              <div class="exp-impact-value">59%</div>
+              <div class="exp-impact-label">Measurement time reduction</div>
+            </div>
+
+            <div class="exp-impact-card">
+              <div class="exp-impact-value">10 min</div>
+              <div class="exp-impact-label">Saved per chassis</div>
+            </div>
+
+            <div class="exp-impact-card">
+              <div class="exp-impact-value">$343K</div>
+              <div class="exp-impact-label">Projected annual savings</div>
+            </div>
+          </div>
 
           <div class="exp-recognition">
             <div class="recognition-group">
@@ -2672,7 +2739,6 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
             <span class="tech-pill">AutoCAD</span>
             <span class="tech-pill">DraftSight</span>
             <span class="tech-pill">LEAN Engineering</span>
-            <span class="tech-pill">R&amp;D</span>
             <span class="tech-pill">Manufacturing</span>
           </div>
         </div>
