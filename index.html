@@ -1583,36 +1583,35 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
   margin-bottom: 16px;
 }
 
-.project-feature-grid {
+.project-feature-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   margin: 14px 0 16px;
 }
 
-.project-feature-card {
-  min-width: 0;
+.project-feature-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  align-items: center;
   background: rgba(11,14,20,0.38);
   border: 1px solid rgba(245,166,35,0.16);
   border-radius: var(--radius-lg);
-  padding: 12px 10px;
-  overflow: hidden;
+  padding: 10px 12px;
 }
 
 .project-feature-title {
   font-family: 'Syne', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--accent);
-  line-height: 1.05;
-  margin-bottom: 6px;
-  word-break: normal;
-  overflow-wrap: break-word;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .project-feature-label {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 8px;
+  font-size: 8.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1620,12 +1619,13 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
 }
 
 @media (max-width: 480px) {
-  .project-feature-grid {
+  .project-feature-row {
     grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   .project-feature-title {
-    font-size: 15px;
+    white-space: normal;
   }
 }
   
@@ -2989,25 +2989,25 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           Supported implementation of a connected torque data collection system for Lippert chassis and pin box assemblies, linking automated torque tools with manufacturing networks, industrial controllers, Ignition, Microsoft Dynamics 365, and Power BI. Developed and tested a serial-number-driven workflow that loads fastening profiles from scanned chassis and pin box serial numbers to improve traceability, consistency, and process control.
         </div>
 
-        <div class="project-feature-grid">
-          <div class="project-feature-card">
+        <div class="project-feature-list">
+          <div class="project-feature-row">
             <div class="project-feature-title">Traceability</div>
-            <div class="project-feature-label">Torque data capture</div>
+            <div class="project-feature-label">Torque data capture and quality records</div>
           </div>
 
-          <div class="project-feature-card">
+          <div class="project-feature-row">
             <div class="project-feature-title">Automation</div>
-            <div class="project-feature-label">Serial-number profiles</div>
+            <div class="project-feature-label">Serial-number-driven fastening profiles</div>
           </div>
 
-          <div class="project-feature-card">
+          <div class="project-feature-row">
             <div class="project-feature-title">Integration</div>
-            <div class="project-feature-label">Ignition, D365, Power BI</div>
+            <div class="project-feature-label">Ignition, D365, Power BI, machine networks</div>
           </div>
 
-          <div class="project-feature-card">
+          <div class="project-feature-row">
             <div class="project-feature-title">Docs</div>
-            <div class="project-feature-label">Gemba process support</div>
+            <div class="project-feature-label">Gemba process and engineering documentation</div>
           </div>
         </div>
 
@@ -3018,7 +3018,6 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           <span class="stack-tag">D365</span>
           <span class="stack-tag">Power BI</span>
           <span class="stack-tag">Gemba Docs</span>
-          <span class="stack-tag">Industry 4.0</span>
         </div>
       </div>      
 
