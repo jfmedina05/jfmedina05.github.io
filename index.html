@@ -1583,6 +1583,44 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
   margin-bottom: 16px;
 }
 
+.project-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 16px;
+}
+
+.project-feature-card {
+  background: rgba(11,14,20,0.38);
+  border: 1px solid rgba(245,166,35,0.16);
+  border-radius: var(--radius-lg);
+  padding: 12px 10px;
+}
+
+.project-feature-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.project-feature-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+@media (max-width: 480px) {
+  .project-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  
 .project-metrics-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2937,10 +2975,32 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           <div class="project-category">Professional · Manufacturing Systems Engineering</div>
         </div>
 
-        <div class="project-title">DC Nut Runner Torque Data Collection System — Manufacturing Traceability &amp; Automation</div>
+        <div class="project-title">DC Nut Runner Torque Traceability System</div>
 
         <div class="project-desc">
-          Supported the implementation of a DC Nut Runner Torque Data Collection System for Lippert chassis and pin box assemblies, integrating automated torque tools with manufacturing networks, industrial controllers, and enterprise systems to improve quality traceability, process control, and production data visibility. Developed and tested a serial-number-driven workflow that automatically loads fastening profiles based on scanned chassis and pin box serial numbers, reducing manual operator input and improving process consistency. Assisted in validating torque data collection and storage workflows across connected manufacturing systems, including Ignition, Microsoft Dynamics 365, and Power BI environments, while creating engineering and process documentation in Gemba Docs to support implementation, equipment programming, and continuous improvement.
+          Supported implementation of a connected torque data collection system for Lippert chassis and pin box assemblies, linking automated torque tools with manufacturing networks, industrial controllers, Ignition, Microsoft Dynamics 365, and Power BI. Developed and tested a serial-number-driven workflow that automatically loads fastening profiles from scanned chassis and pin box serial numbers to improve traceability, consistency, and process control.
+        </div>
+
+        <div class="project-feature-grid">
+          <div class="project-feature-card">
+            <div class="project-feature-title">Traceability</div>
+            <div class="project-feature-label">Torque data capture and storage</div>
+          </div>
+
+          <div class="project-feature-card">
+            <div class="project-feature-title">Automation</div>
+            <div class="project-feature-label">Serial-number-driven fastening profiles</div>
+          </div>
+
+          <div class="project-feature-card">
+            <div class="project-feature-title">Integration</div>
+            <div class="project-feature-label">Ignition, D365, Power BI, machine networks</div>
+          </div>
+
+          <div class="project-feature-card">
+            <div class="project-feature-title">Documentation</div>
+            <div class="project-feature-label">Gemba Docs process and engineering support</div>
+          </div>
         </div>
 
         <div class="project-stack">
@@ -2952,7 +3012,6 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           <span class="stack-tag">Ignition</span>
           <span class="stack-tag">Microsoft Dynamics 365</span>
           <span class="stack-tag">Power BI</span>
-          <span class="stack-tag">PLC-Controlled Equipment</span>
           <span class="stack-tag">Gemba Docs</span>
           <span class="stack-tag">Traceability</span>
           <span class="stack-tag">Industry 4.0</span>
