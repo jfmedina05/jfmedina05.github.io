@@ -709,6 +709,42 @@
     color: var(--text-dim);
     line-height: 1.5;
   }
+
+  .highlight-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.highlight-action-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 6px 11px;
+  border-radius: var(--radius);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  text-decoration: none;
+  background: rgba(74,158,255,0.08);
+  transition: all 0.2s;
+}
+
+.highlight-action-btn:hover {
+  background: var(--blue);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.highlight-action-secondary {
+  border-color: rgba(245,166,35,0.45);
+  color: var(--accent);
+  background: rgba(245,166,35,0.08);
+}
+
+.highlight-action-secondary:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
   .about-focus-grid {
   grid-template-columns: 1fr 1fr;
 }
@@ -2368,9 +2404,21 @@ box-shadow: 0 0 22px rgba(153,0,0,0.16);
           <div class="highlight-icon">
             <img src="assets/logos/type1-diabetes-ribbon.png" alt="Type 1 diabetes awareness ribbon" class="highlight-icon-img">
           </div>
+
           <div class="highlight-title">Healthcare & Human-Centered Engineering</div>
+
           <div class="highlight-text">
             Interested in medical devices, diabetes care technology, and healthcare software. Built a synthetic CGM analytics project exploring glucose trend detection, alert logic, validation testing, and user-centered risk communication.
+          </div>
+
+          <div class="highlight-actions">
+            <a href="/projects/cgm-alert-pipeline/" class="highlight-action-btn">
+              View CGM Case Study
+            </a>
+
+            <a href="https://github.com/jfmedina05/glucose-trend-alert-system" target="_blank" rel="noopener noreferrer" class="highlight-action-btn highlight-action-secondary">
+              GitHub Repo
+            </a>
           </div>
         </div>
 
